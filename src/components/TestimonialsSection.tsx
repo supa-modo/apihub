@@ -28,7 +28,7 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
+export default function TestimonialsSection() {
   return (
     <section className="bg-[#0F172A] py-24 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -38,7 +38,7 @@ export default function Testimonials() {
           </p>
           <h2 className="font-['Sora'] font-extrabold text-4xl lg:text-5xl text-white leading-tight">
             Trusted by builders &{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
               operators
             </span>
           </h2>
@@ -48,7 +48,7 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="relative p-7 rounded-2xl border border-white/8 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/15 transition-all duration-300 flex flex-col group"
+              className="relative p-7 rounded-2xl border border-white/8 bg-white/2 hover:bg-white/4 hover:border-white/15 transition-all duration-300 flex flex-col group"
             >
               {/* Quote mark */}
               <svg
@@ -70,7 +70,7 @@ export default function Testimonials() {
 
               <div className="flex items-center gap-3">
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-['Sora'] font-bold text-sm"
+                  className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 font-['Sora'] font-bold text-sm"
                   style={{ background: t.color + "25", color: t.color, border: `1px solid ${t.color}35` }}
                 >
                   {t.initial}

@@ -1,101 +1,82 @@
-const year = new Date().getFullYear();
+// Footer.tsx
+import React from 'react';
 
-export default function Footer() {
+const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0A1020] border-t border-white/5 py-14">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-10 mb-12">
+    <footer className="bg-slate-950 text-white py-20">
+      <div className="max-w-screen-2xl mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-y-12">
           {/* Brand */}
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 4h2v8H3V4zm4-2h2v12H7V2zm4 4h2v4h-2V6z" fill="white" />
-                </svg>
+          <div className="col-span-2 md:col-span-1">
+            <div className="flex items-center gap-x-2 text-white">
+              <div className="w-8 h-8 bg-linear-to-br from-blue-400 to-emerald-400 rounded-2xl flex items-center justify-center">
+                <span className="text-white text-xl">⚡</span>
               </div>
-              <span className="font-['Sora'] font-bold text-white text-[15px]">
-                ApiHub <span className="text-indigo-400">Solutions</span>
-              </span>
+              <span className="font-semibold text-3xl tracking-[-1px]">APIHub</span>
+              <span className="font-medium text-3xl tracking-[-1px] text-emerald-400">Solutions</span>
             </div>
-            <p className="text-slate-500 text-sm font-['Inter'] leading-relaxed max-w-xs">
-              Custom Software & API Integrations built for African businesses. We build the systems that power your
-              operations.
+            <p className="text-slate-400 text-sm mt-6 max-w-xs">
+              Nairobi-based engineering studio building the digital infrastructure of Africa’s most ambitious companies.
             </p>
-            <div className="flex items-center gap-3 mt-5">
-              {/* Social placeholders */}
-              {[
-                { label: "GitHub", icon: "⌥" },
-                { label: "LinkedIn", icon: "in" },
-                { label: "Twitter", icon: "𝕏" },
-              ].map((s) => (
-                <a
-                  key={s.label}
-                  href="#"
-                  aria-label={s.label}
-                  className="w-8 h-8 rounded-lg border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/20 flex items-center justify-center text-slate-400 hover:text-white transition-all text-xs font-['Inter'] font-bold"
-                >
-                  {s.icon}
-                </a>
-              ))}
+            <div className="mt-8 flex gap-x-6 text-slate-400">
+              <a href="#" className="hover:text-white">𝕏</a>
+              <a href="#" className="hover:text-white">LinkedIn</a>
+              <a href="#" className="hover:text-white">Instagram</a>
             </div>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-white text-xs font-['Inter'] font-semibold uppercase tracking-wider mb-4">
-              Services
-            </h4>
-            <ul className="space-y-2.5">
-              {["API Integrations", "Custom Software", "Fintech Solutions", "Web & Mobile Apps", "Cloud Infrastructure"].map((item) => (
-                <li key={item}>
-                  <a href="#services" className="text-slate-500 hover:text-slate-300 text-sm font-['Inter'] transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h4 className="text-white text-xs font-['Inter'] font-semibold uppercase tracking-wider mb-4">
-              Company
-            </h4>
-            <ul className="space-y-2.5">
-              {["Projects", "About", "Contact"].map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="text-slate-500 hover:text-slate-300 text-sm font-['Inter'] transition-colors"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 space-y-1.5">
-              <a
-                href="mailto:hello@apihubsolutions.com"
-                className="block text-slate-500 hover:text-slate-300 text-xs font-['Inter'] transition-colors"
-              >
-                hello@apihubsolutions.com
-              </a>
-              <p className="text-slate-600 text-xs font-['Inter']">Nairobi, Kenya</p>
+            <div className="uppercase text-xs font-medium mb-5 text-slate-400">Company</div>
+            <div className="flex flex-col gap-y-4 text-sm">
+              <a href="#" className="hover:text-emerald-400">About Us</a>
+              <a href="#" className="hover:text-emerald-400">Our Story</a>
+              <a href="#" className="hover:text-emerald-400">Careers — We’re hiring</a>
+              <a href="#" className="hover:text-emerald-400">Blog</a>
             </div>
           </div>
-        </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-slate-600 text-xs font-['Inter']">
-            © {year} ApiHub Solutions. All rights reserved.
-          </p>
-          <div className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-slate-600 text-xs font-['Inter']">All systems operational</span>
+          {/* Solutions */}
+          <div>
+            <div className="uppercase text-xs font-medium mb-5 text-slate-400">Solutions</div>
+            <div className="flex flex-col gap-y-4 text-sm">
+              <a href="#" className="hover:text-emerald-400">Fintech Platforms</a>
+              <a href="#" className="hover:text-emerald-400">Insurance Core</a>
+              <a href="#" className="hover:text-emerald-400">Property Tech</a>
+              <a href="#" className="hover:text-emerald-400">Custom SaaS</a>
+            </div>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <div className="uppercase text-xs font-medium mb-5 text-slate-400">Resources</div>
+            <div className="flex flex-col gap-y-4 text-sm">
+              <a href="#" className="hover:text-emerald-400">API Documentation</a>
+              <a href="#" className="hover:text-emerald-400">Case Studies</a>
+              <a href="#" className="hover:text-emerald-400">Security &amp; Compliance</a>
+              <a href="#" className="hover:text-emerald-400">Contact Sales</a>
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div className="col-span-2 md:col-span-1">
+            <div className="uppercase text-xs font-medium mb-5 text-slate-400">Get in touch</div>
+            <a href="mailto:hello@apihub.solutions" className="block text-xl font-medium hover:text-emerald-300">
+              hello@apihub.solutions
+            </a>
+            <a href="tel:+254712345678" className="block text-xl font-medium mt-1 hover:text-emerald-300">
+              +254 712 345 678
+            </a>
+            <div className="mt-8 text-xs text-slate-400">
+              Westlands, Nairobi<br />
+              Kenya
+            </div>
+            <div className="mt-10 text-xs font-mono text-slate-500">© 2026 APIHub Solutions Ltd</div>
           </div>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
