@@ -1,100 +1,158 @@
-// ServicesSection.tsx
-import React from 'react';
+import React from "react";
+import {
+  TbApiApp,
+  TbArrowRightToArc,
+  TbCloudComputing,
+  TbCode,
+  TbCreditCard,
+  TbDeviceMobileBolt,
+  TbPuzzle,
+} from "react-icons/tb";
+
+type ServiceItem = {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  accent: string;
+};
+
+const services: ServiceItem[] = [
+  {
+    icon: <TbCode className="w-7 h-7" strokeWidth={1.5} />,
+    title: "Web Development",
+    description:
+      "Blazing-fast, accessible web applications using React, Next.js, and modern frameworks.",
+    accent: "from-primary-600/15 to-secondary-600/10",
+  },
+  {
+    icon: <TbDeviceMobileBolt className="w-7 h-7" strokeWidth={1.5} />,
+    title: "Mobile Apps",
+    description:
+      "Native iOS & Android apps and cross-platform React Native solutions with offline support.",
+    accent: "from-secondary-600/15 to-primary-600/10",
+  },
+  {
+    icon: <TbApiApp className="w-7 h-7" strokeWidth={1.5} />,
+    title: "API Development",
+    description:
+      "REST, GraphQL, and event-driven APIs with OpenAPI specs and enterprise security.",
+    accent: "from-primary-700/15 to-secondary-500/10",
+  },
+  {
+    icon: <TbCloudComputing className="w-7 h-7" strokeWidth={1.5} />,
+    title: "Cloud & DevOps",
+    description:
+      "Kubernetes, Docker, CI/CD pipelines, and infrastructure as code on AWS, Azure & GCP.",
+    accent: "from-slate-700/10 to-primary-600/12",
+  },
+  {
+    icon: <TbPuzzle className="w-7 h-7" strokeWidth={1.5} />,
+    title: "System Integrations",
+    description:
+      "Seamless ERP, CRM, and third-party platform connections with zero data loss.",
+    accent: "from-secondary-600/12 to-primary-700/10",
+  },
+  {
+    icon: <TbCreditCard className="w-7 h-7" strokeWidth={1.5} />,
+    title: "Fintech Solutions",
+    description:
+      "M-Pesa, Paystack, Stripe, Flutterwave, and custom payment gateways with PCI-DSS compliance.",
+    accent: "from-primary-600/14 to-secondary-600/12",
+  },
+];
 
 const ServicesSection: React.FC = () => {
-  const services = [
-    {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 4L2 8l4 4" />
-        </svg>
-      ),
-      title: 'Web Development',
-      description: 'Blazing-fast, accessible web applications using React, Next.js, and modern frameworks.',
-    },
-    {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2" />
-        </svg>
-      ),
-      title: 'Mobile Apps',
-      description: 'Native iOS &amp; Android apps and cross-platform React Native solutions with offline support.',
-    },
-    {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
-      title: 'API Development',
-      description: 'REST, GraphQL, and event-driven APIs with OpenAPI specs and enterprise security.',
-    },
-    {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.502 5.502 0 00-10.78 2.22A4.5 4.5 0 003 15z" />
-        </svg>
-      ),
-      title: 'Cloud &amp; DevOps',
-      description: 'Kubernetes, Docker, CI/CD pipelines, and infrastructure as code on AWS, Azure &amp; GCP.',
-    },
-    {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 01-5.356-1.857M17 20H7m5-2v-2c0-.656-.126-1.284-.356-1.852M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.284.356-1.852m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      ),
-      title: 'System Integrations',
-      description: 'Seamless ERP, CRM, and third-party platform connections with zero data loss.',
-    },
-    {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3" />
-        </svg>
-      ),
-      title: 'Fintech Solutions',
-      description: 'M-Pesa, Stripe, Flutterwave, and custom payment gateways with PCI-DSS compliance.',
-    },
-  ];
-
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="max-w-screen-2xl mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12">
-          <div>
-            <span className="px-4 py-2 text-xs font-mono tracking-[1px] bg-emerald-100 text-emerald-700 rounded-3xl">SERVICES</span>
-            <h2 className="text-4xl lg:text-5xl font-semibold tracking-tighter text-slate-900 mt-3">
-              End-to-end digital craftsmanship
-            </h2>
+    <section
+      id="services"
+      className="relative overflow-hidden bg-white pt-8 lg:pt-12 pb-14"
+    >
+      {/* ambient background — mirrors hero depth without competing */}
+      <div
+        className="pointer-events-none absolute -left-32 top-24 h-96 w-96 rounded-full bg-linear-to-br from-primary-100/80 to-transparent blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-24 bottom-32 h-80 w-80 rounded-full bg-linear-to-tl from-secondary-100/70 to-transparent blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-slate-200 to-transparent"
+        aria-hidden
+      />
+
+      <div className="relative z-10 mx-auto max-w-screen-2xl px-4 lg:px-12">
+        {/* header */}
+        <div className="mb-10 lg:mb-12 flex flex-col gap-6 lg:gap-10 lg:flex-row lg:items-start lg:justify-between">
+          <div className="max-w-3xl">
+           {/*  */}
+           <div className="">
+              <p className="font-sora text-lg md:text-xl lg:text-2xl font-text-slate-900">
+                We engineer modular digital systems designed for 
+                <span className="text-slate-400 font-semibold"> sustainable growth, </span> 
+                bridging the gap between 
+                <span className="bg-linear-to-r from-primary-700 to-secondary-600 font-semibold bg-clip-text text-transparent"> complex business logic </span> 
+                and intuitive user experiences.
+              </p>
+            </div>
+
+            {/* Right: The Body Text */}
+            <div className=" mt-2 lg:col-span-3">
+              <p className="font-sora text-slate-500 text-sm lg:text-base">
+                Our approach focuses on the long-term maintainability of your stack, serving a strategic purpose in your product roadmap  beyond just simple delivery.
+              </p>
+            </div>
           </div>
-          <a href="#contact" className="mt-6 lg:mt-0 text-emerald-600 hover:text-emerald-700 font-medium flex items-center gap-x-2 group">
-            View full capability deck
-            <span className="transition-transform group-hover:translate-x-1">→</span>
+
+          <a
+            href="#contact"
+            className="group inline-flex shrink-0 items-center gap-2 self-start rounded-full border-2 border-secondary-600 px-6 py-2.5 font-sora text-[0.83rem] md:text-sm font-bold text-secondary-700 transition-all hover:bg-secondary-100 lg:self-auto"
+          >
+            <span>Discuss Your Stack With Us</span>
+            <TbArrowRightToArc className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* grid */}
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-6 xl:grid-cols-3">
           {services.map((service, i) => (
-            <div
-              key={i}
-              className="group bg-white border border-slate-100 hover:border-emerald-200 rounded-3xl p-8 transition-all hover:shadow-2xl hover:-translate-y-2 flex flex-col"
+            <article
+              key={service.title}
+              className="group relative flex flex-col rounded-3xl border border-slate-200/90 bg-white/70 p-5 lg:p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-200 hover:shadow-xl hover:shadow-primary-600/6"
             >
-              <div className="text-blue-600 group-hover:text-emerald-500 transition-colors">
+              {/* index ribbon */}
+              <span
+                className="absolute right-6 top-6 font-sora text-4xl font-extrabold tabular-nums text-slate-100 transition-colors duration-300 group-hover:text-primary-100"
+                aria-hidden
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+<div className="flex items-center gap-3">
+              <div
+                className={`relative inline-flex w-fit rounded-2xl bg-linear-to-br ${service.accent} p-3 text-primary-700 ring-1 ring-slate-200/80 transition-transform duration-300 group-hover:scale-[1.02] group-hover:text-primary-800`}
+              >
                 {service.icon}
               </div>
-              <h3 className="font-semibold text-2xl mt-8 mb-3 tracking-tight">{service.title}</h3>
-              <p className="text-slate-600 flex-1">{service.description}</p>
-              <div className="h-px bg-slate-100 my-8 group-hover:bg-emerald-200 transition-colors" />
-              <div className="text-xs font-medium flex items-center text-slate-400">
-                Learn more
-                <span className="flex-1 h-px bg-slate-200 mx-3" />
-                <span className="text-emerald-500 text-lg group-hover:translate-x-1 transition-transform">→</span>
+
+              <h3 className="font-sora text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
+                {service.title}
+              </h3>
               </div>
-            </div>
+              <p className="mt-3 flex-1 font-sora text-sm leading-relaxed text-slate-600 md:text-[0.95rem]">
+                {service.description}
+              </p>
+
+              <div className="mt-4 lg:mt-5 border-t border-dashed border-slate-300 pt-3 lg:pt-4">
+                <span className="pl-2 inline-flex items-center gap-2 font-sora text-sm font-semibold text-primary-600 transition-colors group-hover:text-primary-700">
+                 Consult on This Service
+                  <TbArrowRightToArc className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </article>
           ))}
         </div>
+
+       
       </div>
     </section>
   );

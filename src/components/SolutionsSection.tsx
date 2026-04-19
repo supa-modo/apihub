@@ -1,61 +1,472 @@
-// SolutionsSection.tsx
-import React from 'react';
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import {
+  motion,
+  useReducedMotion,
+  AnimatePresence,
+  useMotionValue,
+} from "framer-motion";
+import { TbArrowRightToArc } from "react-icons/tb";
 
-const SolutionsSection: React.FC = () => {
-  const solutions = [
-    {
-      title: 'Insurance Systems',
-      desc: 'Policy administration, claims automation, and real-time underwriting platforms.',
-      emoji: '🛡️',
-      color: 'blue',
-    },
-    {
-      title: 'Property Management',
-      desc: 'End-to-end tenant portals, rent collection, and facility maintenance SaaS.',
-      emoji: '🏢',
-      color: 'emerald',
-    },
-    {
-      title: 'Fintech Platforms',
-      desc: 'Digital wallets, lending engines, and cross-border payment solutions.',
-      emoji: '💳',
-      color: 'amber',
-    },
-    {
-      title: 'SaaS Platforms',
-      desc: 'Multi-tenant B2B platforms with usage-based billing and AI analytics.',
-      emoji: '📦',
-      color: 'violet',
-    },
-  ];
+type Solution = {
+  title: string;
+  desc: string;
+  tag: string;
+  image: string;
+};
+
+const solutions: Solution[] = [
+  {
+    title: "Insurance & Brokerage Systems",
+    desc: "Automate policy administration, claims processing, and real-time underwriting with AI-driven risk assessment tools built for the modern insurance landscape.",
+    tag: "Insurance",
+    image:
+      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Property Management",
+    desc: "End-to-end tenant portals, automated rent collection, and facility maintenance SaaS platforms that streamline operations for large scale real estate portfolios.",
+    tag: "Proptech",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Payment Solutions",
+    desc: "M-Pesa, Paystack, Stripe, Bank APIs, and custom payment gateways with PCI-DSS compliance.",
+    tag: "Fintech",
+    image:
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Enterprise Systems",
+    desc: "Multi-tenant B2B platforms featuring usage-based billing, advanced AI analytics, and scalable cloud infrastructure designed for global performance.",
+    tag: "Corporate",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+  },
+];
+
+const easeOut = [0.22, 1, 0.36, 1] as const;
+const COLLAPSED_DESC_H = "3rem";
+
+// ─── Desktop Card ────────────────────────────────────────────────────────────
+
+const DesktopSolutionCard: React.FC<{ sol: Solution; cardId: string }> = ({
+  sol,
+  cardId,
+}) => {
+  const reduceMotion = useReducedMotion();
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <section id="solutions" className="py-20 bg-slate-50">
-      <div className="max-w-screen-2xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-12">
-          <span className="text-xs uppercase font-medium tracking-widest text-slate-400">INDUSTRIES WE POWER</span>
-          <h2 className="text-4xl font-semibold tracking-tighter mt-2">Purpose-built solutions for complex industries</h2>
-        </div>
+    <motion.article
+      className="relative h-[480px] cursor-default overflow-hidden rounded-[2.5rem] bg-slate-900 shadow-lg"
+      initial={false}
+      whileHover={reduceMotion ? undefined : { y: -8 }}
+      transition={{ type: "spring", stiffness: 320, damping: 32, mass: 0.85 }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      aria-labelledby={`${cardId}-title`}
+    >
+      <motion.img
+        src={sol.image}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover"
+        initial={false}
+        animate={{
+          scale: hovered ? 1.08 : 1.03,
+          opacity: hovered ? 0.72 : 0.6,
+        }}
+        transition={
+          reduceMotion ? { duration: 0 } : { duration: 0.85, ease: easeOut }
+        }
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {solutions.map((solution, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-3xl p-8 group hover:ring-2 hover:ring-offset-4 hover:ring-emerald-200 transition-all"
-            >
-              <div className={`text-5xl mb-6 transition-transform group-hover:scale-110`}>{solution.emoji}</div>
-              <h4 className="text-2xl font-semibold">{solution.title}</h4>
-              <p className="mt-4 text-slate-600">{solution.desc}</p>
-              <div className="mt-10 text-xs font-mono uppercase tracking-widest text-slate-400 group-hover:text-emerald-600 flex items-center">
-                Case study available
-                <span className="ml-auto text-2xl text-emerald-300 group-hover:text-emerald-500">↗</span>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="absolute inset-0 bg-linear-to-b from-black/5 via-black/20 to-black/95" />
+
+      <motion.div
+        className="absolute inset-0 bg-linear-to-t from-black/85 via-black/35 to-transparent"
+        initial={false}
+        animate={{ opacity: hovered ? 1 : 0 }}
+        transition={
+          reduceMotion ? { duration: 0 } : { duration: 0.55, ease: easeOut }
+        }
+      />
+
+      <div className="absolute inset-0 flex flex-col justify-end p-8">
+        <motion.span
+          className="mb-3 -ml-1 inline-block w-fit rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs tracking-wide font-sora font-bold text-white backdrop-blur-md"
+          initial={false}
+          animate={{ y: hovered ? 0 : 4 }}
+          transition={
+            reduceMotion
+              ? { duration: 0 }
+              : { type: "spring", stiffness: 190, damping: 32, mass: 0.85 }
+          }
+        >
+          {sol.tag}
+        </motion.span>
+
+        <motion.h4
+          id={`${cardId}-title`}
+          className="mb-3 font-sora text-[1.4rem] font-bold leading-tight text-white"
+          initial={false}
+          animate={{ y: hovered ? 0 : 2 }}
+          transition={
+            reduceMotion
+              ? { duration: 0 }
+              : { type: "spring", stiffness: 190, damping: 32, mass: 0.85 }
+          }
+        >
+          {sol.title}
+        </motion.h4>
+
+        <motion.div
+          className="overflow-hidden"
+          initial={false}
+          animate={{ height: hovered ? "auto" : COLLAPSED_DESC_H }}
+          transition={
+            reduceMotion
+              ? { duration: 0 }
+              : {damping: 32, mass: 0.85 }
+          }
+        >
+          <motion.p
+            className="font-sora text-[0.83rem] leading-relaxed text-slate-300"
+            initial={false}
+            animate={{ opacity: hovered ? 1 : 0.85 }}
+            transition={
+              reduceMotion ? { duration: 0 } : { duration: 0.35, ease: easeOut }
+            }
+          >
+            {sol.desc}
+          </motion.p>
+        </motion.div>
       </div>
-    </section>
+
+      <motion.div
+        className="pointer-events-none absolute inset-0 rounded-[2.5rem] border border-white/10"
+        initial={false}
+        animate={{
+          borderColor: hovered
+            ? "rgba(59,130,246,0.35)"
+            : "rgba(255,255,255,0.1)",
+          boxShadow: hovered
+            ? "0 25px 50px -12px rgba(37,99,235,0.18)"
+            : "0 10px 15px -3px rgba(0,0,0,0.08)",
+        }}
+        transition={
+          reduceMotion ? { duration: 0 } : { duration: 0.45, ease: easeOut }
+        }
+      />
+    </motion.article>
   );
 };
+
+// ─── Mobile Carousel ─────────────────────────────────────────────────────────
+
+/**
+ * The carousel uses a physics-based drag with snap-to-index.
+ * Peek cards scale up as they approach center — exactly like SwiftUI's
+ * scaledToFill carousel. We drive everything from a single MotionValue `x`
+ * so there's no stutter.
+ */
+
+const CARD_GAP = 8; // px gap between cards
+
+interface CarouselCardProps {
+  sol: Solution;
+  position: number; // -1 prev, 0 active, 1+ next peek distances
+  onClick?: () => void;
+  isActive: boolean;
+  reduceMotion: boolean;
+  index: number;
+  activeIndex: number;
+}
+
+const CarouselCard: React.FC<CarouselCardProps> = ({
+  sol,
+  isActive,
+  onClick,
+  reduceMotion,
+}) => {
+  const spring = {
+    type: "spring" as const,
+    stiffness: 340,
+    damping: 36,
+    mass: 0.9,
+  };
+
+  return (
+    <motion.div
+      onClick={onClick}
+      className="relative h-full w-full shrink-0 overflow-hidden rounded-4xl bg-slate-900"
+      animate={{
+        scale: isActive ? 1 : 0.88,
+        opacity: isActive ? 1 : 0.55,
+        filter: isActive ? "brightness(1)" : "brightness(0.7)",
+      }}
+      transition={reduceMotion ? { duration: 0 } : spring}
+      style={{ cursor: isActive ? "default" : "pointer" }}
+    >
+      {/* Background image with Ken-Burns on active */}
+      <motion.img
+        src={sol.image}
+        alt=""
+        aria-hidden
+        draggable={false}
+        className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
+        animate={
+          isActive ? { scale: 1.06, opacity: 0.7 } : { scale: 1, opacity: 0.5 }
+        }
+        transition={
+          reduceMotion
+            ? { duration: 0 }
+            : isActive
+              ? { duration: 7, ease: "linear" }
+              : { duration: 0.5, ease: easeOut }
+        }
+      />
+
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-linear-to-b from-black/5 via-black/20 to-black/95" />
+      <motion.div
+        className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent"
+        animate={{ opacity: isActive ? 0.9 : 0.5 }}
+        transition={
+          reduceMotion ? { duration: 0 } : { duration: 0.5, ease: easeOut }
+        }
+      />
+
+      {/* Content — only fully visible on active */}
+      <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-7">
+        <AnimatePresence mode="wait">
+          {isActive && (
+            <motion.div
+              key={sol.title}
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { duration: 0.38, ease: easeOut, delay: 0.06 }
+              }
+              className="flex flex-col"
+            >
+              <span className="mb-3 inline-block w-fit rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs tracking-wide font-sora font-bold text-white backdrop-blur-md">
+                {sol.tag}
+              </span>
+
+              <h4 className="mb-2.5 font-sora text-[1.2rem] font-bold leading-tight text-white sm:text-2xl">
+                {sol.title}
+              </h4>
+
+              <p className="line-clamp-3 text-[0.8rem] leading-relaxed text-slate-300 sm:text-sm">
+                {sol.desc}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* Border ring */}
+      <motion.div
+        className="pointer-events-none absolute inset-0 rounded-4xl"
+        animate={{
+          boxShadow: isActive
+            ? "inset 0 0 0 1px rgba(255,255,255,0.18), 0 28px 56px -10px rgba(0,0,0,0.55)"
+            : "inset 0 0 0 1px rgba(255,255,255,0.08)",
+        }}
+        transition={
+          reduceMotion ? { duration: 0 } : { duration: 0.45, ease: easeOut }
+        }
+      />
+    </motion.div>
+  );
+};
+
+const SolutionsCarousel: React.FC<{ items: Solution[] }> = ({ items }) => {
+  const n = items.length;
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const reduceMotion = useReducedMotion();
+
+  // Drag state
+  const dragX = useMotionValue(0);
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+
+  const go = useCallback((next: number) => setIndex(((next % n) + n) % n), [n]);
+
+  // Auto-advance
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => go(index + 1), 5000);
+    return () => clearInterval(id);
+  }, [paused, index, go]);
+
+  return (
+    <div
+      className="flex flex-col"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Full-bleed track */}
+      <div
+        className="relative overflow-hidden"
+        style={{
+          marginLeft: "calc(50% - 50vw)",
+          marginRight: "calc(50% - 50vw)",
+        }}
+        aria-label="Industry solutions carousel"
+        role="region"
+      >
+        {/* The sliding track */}
+        <div
+          className="flex touch-pan-y select-none"
+          style={{ gap: `${CARD_GAP}px`, padding: `0 ${PEEK_SIZE}px` }}
+          onPointerDown={(e) => {
+            isDragging.current = true;
+            dragStartX.current = e.clientX;
+            dragX.set(0);
+          }}
+          onPointerMove={(e) => {
+            if (!isDragging.current) return;
+            dragX.set(e.clientX - dragStartX.current);
+          }}
+          onPointerUp={(e) => {
+            if (!isDragging.current) return;
+            isDragging.current = false;
+            const delta = e.clientX - dragStartX.current;
+            if (delta < -48) go(index + 1);
+            else if (delta > 48) go(index - 1);
+            dragX.set(0);
+          }}
+          onPointerLeave={() => {
+            isDragging.current = false;
+            dragX.set(0);
+          }}
+        >
+          {items.map((sol, i) => {
+            const dist = i - index;
+            const isActive = dist === 0;
+
+            return (
+              <motion.div
+                key={sol.title}
+                className="shrink-0"
+                style={{
+                  width: `calc(100vw - ${PEEK_SIZE * 2 + CARD_GAP * 2}px)`,
+                  height: "min(450px, 70vh)",
+                }}
+                animate={{
+                  x: `calc(${-index * 100}% + ${-index * CARD_GAP}px)`,
+                }}
+                transition={
+                  reduceMotion
+                    ? { duration: 0 }
+                    : { type: "spring", stiffness: 360, damping: 40, mass: 0.9 }
+                }
+              >
+                <CarouselCard
+                  sol={sol}
+                  position={dist}
+                  isActive={isActive}
+                  onClick={isActive ? undefined : () => go(i)}
+                  reduceMotion={!!reduceMotion}
+                  index={i}
+                  activeIndex={index}
+                />
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Dots */}
+      <div className="mt-5 flex items-center justify-center ">
+        {items.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            aria-label={`Show solution ${i + 1}`}
+            aria-current={i === index ? "true" : undefined}
+            onClick={() => go(i)}
+            className="touch-manipulation rounded-full p-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+          >
+            <motion.span
+              className={`block h-2 rounded-full ${i === index ? "bg-primary-600" : "bg-slate-400/80"}`}
+              animate={{
+                width: i === index ? 28 : 8,
+                opacity: i === index ? 1 : 0.9,
+              }}
+              transition={{ type: "spring", stiffness: 420, damping: 36 }}
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Peek constants — defined outside component so CarouselCard can reference them
+const PEEK_SIZE = 45; // px of side card visible
+
+// ─── Section ─────────────────────────────────────────────────────────────────
+
+const SolutionsSection: React.FC = () => (
+  <section id="solutions" className="bg-white lg:pt-8 pb-20 lg:pb-24">
+    <div className="font-sora mx-auto max-w-360 px-6 lg:px-12">
+      {/* Header */}
+      <div className="mb-8 flex flex-col justify-between gap-4 md:mb-10 md:flex-row lg:items-start lg:mb-12 lg:gap-6">
+        <div className="max-w-2xl">
+          <h2 className="font-sora text-[1.6rem] font-extrabold leading-tight tracking-tight text-slate-900 md:text-[1.7rem] lg:text-[1.8rem]">
+            Purpose-built solutions for <br />
+            <span className="text-secondary-600">complex industries</span>
+          </h2>
+        </div>
+        <p className="flex items-center text-sm font-medium text-slate-500">
+          <span className="mr-2 h-6 w-1.5 rounded-full bg-primary-600" />
+          Customized frameworks for high-growth sectors.
+        </p>
+      </div>
+
+      {/* Desktop grid */}
+      <div className="hidden gap-4 lg:grid lg:grid-cols-4">
+        {solutions.map((sol, i) => (
+          <DesktopSolutionCard
+            key={sol.title}
+            sol={sol}
+            cardId={`solution-card-${i}`}
+          />
+        ))}
+      </div>
+
+      {/* Mobile carousel */}
+      <div className="lg:hidden">
+        <SolutionsCarousel items={solutions} />
+      </div>
+
+      {/* Bottom strip */}
+      <div className="mt-10 md:mt-12 lg:mt-14 flex flex-col font-sora items-center justify-between gap-6 border-t border-dashed border-slate-400 pt-10 sm:flex-row">
+        <p className="max-w-xl text-center text-sm text-slate-600 sm:text-left">
+          Need a blended engagement? We often combine{" "}
+          <span className="font-semibold text-slate-800">
+            API + cloud + integrations
+          </span>{" "}
+          in a single delivery squad.
+        </p>
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-8 py-3 font-sora text-sm font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95"
+        >
+          Start a Project With Us
+          <TbArrowRightToArc className="h-5 w-5" />
+        </a>
+      </div>
+    </div>
+  </section>
+);
 
 export default SolutionsSection;

@@ -49,6 +49,7 @@ body {
   --font-sora: "Sora", serif;
 
   --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee-y: marquee-y 42s linear infinite;
 }
 
 @keyframes marquee {
@@ -57,6 +58,15 @@ body {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-y {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
   }
 }
 
