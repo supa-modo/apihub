@@ -16,32 +16,30 @@ type Solution = {
 
 const solutions: Solution[] = [
   {
-    title: "Insurance & Brokerage Systems",
+    title: "Agency & Brokerage ",
     desc: "Automate policy administration, claims processing, and real-time underwriting with AI-driven risk assessment tools built for the modern insurance landscape.",
     tag: "Insurance",
-    image:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop",
+    image: "/insurance.webp",
   },
   {
     title: "Property Management",
     desc: "End-to-end tenant portals, automated rent collection, and facility maintenance SaaS platforms that streamline operations for large scale real estate portfolios.",
     tag: "Proptech",
     image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
+      "/property.webp",
   },
   {
     title: "Payment Solutions",
     desc: "M-Pesa, Paystack, Stripe, Bank APIs, and custom payment gateways with PCI-DSS compliance.",
     tag: "Fintech",
-    image:
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800&auto=format&fit=crop",
+    image: "/payment.webp",
   },
   {
     title: "Enterprise Systems",
     desc: "Multi-tenant B2B platforms featuring usage-based billing, advanced AI analytics, and scalable cloud infrastructure designed for global performance.",
     tag: "Corporate",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+      "/enterprise.webp",
   },
 ];
 
@@ -82,7 +80,7 @@ const DesktopSolutionCard: React.FC<{ sol: Solution; cardId: string }> = ({
         }
       />
 
-      <div className="absolute inset-0 bg-linear-to-b from-black/5 via-black/20 to-black/95" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/10 to-black/95" />
 
       <motion.div
         className="absolute inset-0 bg-linear-to-t from-black/85 via-black/35 to-transparent"
@@ -126,9 +124,7 @@ const DesktopSolutionCard: React.FC<{ sol: Solution; cardId: string }> = ({
           initial={false}
           animate={{ height: hovered ? "auto" : COLLAPSED_DESC_H }}
           transition={
-            reduceMotion
-              ? { duration: 0 }
-              : {damping: 32, mass: 0.85 }
+            reduceMotion ? { duration: 0 } : { damping: 32, mass: 0.85 }
           }
         >
           <motion.p

@@ -55,9 +55,7 @@ const ConsultationModal: React.FC = () => {
     e.preventDefault();
     if (!service) return;
 
-    const subject = encodeURIComponent(
-      `Consultation request — ${service}`,
-    );
+    const subject = encodeURIComponent(`Consultation request — ${service}`);
     const body = encodeURIComponent(
       [
         `Name: ${name}`,
@@ -86,7 +84,7 @@ const ConsultationModal: React.FC = () => {
         >
           <motion.div
             aria-hidden
-            className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
+            className="absolute inset-0 bg-slate-900/50 backdrop-blur-xs"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -105,17 +103,17 @@ const ConsultationModal: React.FC = () => {
             transition={{ duration: 0.35, ease: easeOut }}
           >
             <div className="relative overflow-hidden rounded-3xl">
-            <button
-                    ref={closeBtnRef}
-                    type="button"
-                    onClick={closeModal}
-                    className="absolute top-4 right-4 z-10 shrink-0 rounded-full border border-slate-200 bg-white p-2 text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900"
-                    aria-label="Close"
-                  >
-                    <TbX className="h-4 w-4" />
-                  </button>
+              <button
+                ref={closeBtnRef}
+                type="button"
+                onClick={closeModal}
+                className="absolute top-4 right-4 z-10 shrink-0 rounded-full border border-slate-200 bg-white p-2 text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900"
+                aria-label="Close"
+              >
+                <TbX className="h-4 w-4" />
+              </button>
               <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-primary-50/90 via-white to-secondary-50/40" />
-        
+
               <div className="relative border-b border-slate-100 px-6 pb-4 pt-6">
                 <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-3 py-1.5 shadow-sm">
                   <span className="h-3.5 w-[0.3rem] rounded-full bg-amber-600" />
@@ -133,7 +131,6 @@ const ConsultationModal: React.FC = () => {
                       your project
                     </span>
                   </h2>
-                 
                 </div>
                 <p className="mt-2 text-[0.8rem] md:text-sm text-slate-600">
                   We&apos;ll reply within one business day. Fields marked * are
@@ -202,7 +199,10 @@ const ConsultationModal: React.FC = () => {
                         htmlFor="consult-phone"
                         className="mb-1.5 pl-1.5 block font-sora text-[0.85rem] font-semibold text-secondary-700"
                       >
-                        Your Phone <span className="font-normal text-slate-500">(optional)</span>
+                        Your Phone{" "}
+                        <span className="font-normal text-slate-500">
+                          (optional)
+                        </span>
                       </label>
                       <input
                         id="consult-phone"

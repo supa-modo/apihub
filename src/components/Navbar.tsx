@@ -57,12 +57,14 @@ const Navbar: React.FC = () => {
               : "bg-white shadow-md shadow-primary-600/20 border-gray-400/40"
           }`}
         >
-          {/* Logo */}
-          <img
-            src="/logo2.png"
-            alt="APIHub Solutions"
-            className="w-30 md:w-32 lg:w-36"
-          />
+          {/* Logo - clickable to home page */}
+          <a href="/" className="cursor-pointer">
+            <img
+              src="/logo2.png"
+              alt="APIHub Solutions"
+              className="w-30 md:w-32 lg:w-36 cursor-pointer"
+            />
+          </a>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-10">
