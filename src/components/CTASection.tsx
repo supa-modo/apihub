@@ -1,11 +1,19 @@
 import React from "react";
-import { TbArrowRightToArc} from "react-icons/tb";
+import {
+  TbArrowRightToArc,
+  TbClockCode,
+  TbMailShare,
+} from "react-icons/tb";
+import { useConsultationModal } from "@/context/ConsultationModalContext";
+import { PiMapPinAreaDuotone } from "react-icons/pi";
 
 const CTASection: React.FC = () => {
+  const { openModal } = useConsultationModal();
+
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-slate-50 py-10 md:py-14 lg:py-24"
+      className="font-sora relative overflow-hidden bg-slate-50 py-10 md:py-14 lg:py-24"
       aria-labelledby="cta-heading"
     >
       <div
@@ -47,12 +55,78 @@ const CTASection: React.FC = () => {
             <span className="block md:hidden">Contact Us</span>
             <TbArrowRightToArc className="h-5 w-5 shrink-0" aria-hidden />
           </a>
-          <a
-            href="#services"
-            className="rounded-full border-2 border-slate-600 px-5 md:px-6 py-2 font-sora text-[0.83rem] md:text-sm lg:text-[0.9rem] font-bold text-slate-800 transition-colors duration-300 hover:bg-slate-200 md:py-2.5"
+          <button
+            type="button"
+            onClick={openModal}
+            className="rounded-full border-2 border-slate-600 px-5 py-2 font-sora text-[0.83rem] font-bold text-slate-800 transition-colors duration-300 hover:bg-slate-200 md:px-6 md:text-sm lg:text-[0.9rem] md:py-2.5"
           >
             Book Consultation Call
-          </a>
+          </button>
+        </div>
+
+        <div className="mt-6 lg:mt-8 grid gap-3 lg:grid-cols-3 lg:gap-5">
+          <div className="group flex gap-2 justify-between lg:gap-4 rounded-[1.3rem] lg:rounded-3xl border border-slate-200 bg-slate-50/80 p-4 lg:p-5 transition-colors hover:border-primary-200 hover:bg-white">
+            <span className="flex h-10 lg:h-12 w-10 lg:w-12 shrink-0 items-center justify-center rounded-[0.6rem] lg:rounded-2xl bg-slate-200 text-slate-700">
+              <TbMailShare className="h-6 w-6" aria-hidden />
+            </span>
+            <a href="mailto:hello@apihub.solutions" className="">
+              <div className="min-w-0 text-left">
+                <h3 className="font-sora text-[0.8rem] lg:text-[0.9rem] font-bold text-slate-500">
+                  Email
+                </h3>
+                <p className="mt-0.5 text-xs lg:text-sm font-medium text-slate-900">
+                  hello@apihub.solutions
+                </p>
+              </div>
+            </a>
+            <div className="w-px h-10 bg-slate-300" />
+
+            <a href="tel:+254712345678" className="">
+              <div className="min-w-0 text-left">
+                <h3 className="font-sora text-xs lg:text-sm font-bold text-slate-500">
+                  Phone
+                </h3>
+                <p className="mt-0.5 text-xs lg:text-sm font-medium text-slate-900">
+                  +254 712 345 678
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div className="group flex gap-6 lg:gap-6 rounded-[1.3rem] lg:rounded-3xl border border-slate-200 bg-slate-50/80 p-4 lg:p-5 transition-colors hover:border-primary-200 hover:bg-white">
+            <span className="flex h-10 lg:h-12 w-10 lg:w-12 shrink-0 items-center justify-center rounded-[0.6rem] lg:rounded-2xl bg-slate-200 text-slate-700">
+              <PiMapPinAreaDuotone className="h-6 w-6" aria-hidden />
+            </span>
+            <div className="min-w-0">
+              <h3 className="font-sora text-[0.8rem] lg:text-[0.9rem] text-start font-bold text-slate-500">
+                Office Location
+              </h3>
+              <p className="mt-0.5 text-xs lg:text-sm font-medium text-slate-900">
+                Westlands, Nairobi Kenya
+              </p>
+            </div>
+          </div>
+
+          <div className="group flex gap-6 lg:gap-6 rounded-[1.3rem] lg:rounded-3xl border border-slate-200 bg-slate-50/80 p-4 lg:p-5 transition-colors hover:border-primary-200 hover:bg-white">
+            <span className="flex h-10 lg:h-12 w-10 lg:w-12 shrink-0 items-center justify-center rounded-[0.6rem] lg:rounded-2xl bg-slate-200 text-slate-700">
+              <TbClockCode className="h-6 w-6" aria-hidden />
+            </span>
+            <div className="min-w-0">
+              <h3 className="font-sora text-[0.8rem] lg:text-[0.9rem] text-start font-bold text-slate-500">
+                Mon–Fri, 9:00–18:00 EAT
+              </h3>
+              <p className="mt-0.5 text-xs lg:text-sm font-medium text-slate-900">
+                Emergency support for partners
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 lg:mt-10 max-w-xl mx-auto font-sora border-t border-dashed border-slate-300 pt-6">
+          <p className="text-[0.8rem] md:text-[0.84rem] lg:text-sm text-slate-600">
+            Include your timeline and tech stack & we’ll connect you with the
+            right engineer faster.
+          </p>
         </div>
       </div>
 

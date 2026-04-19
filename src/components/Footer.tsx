@@ -2,10 +2,13 @@ import React from "react";
 import { FaLinkedin } from "react-icons/fa";
 import { SiGithub, SiX } from "react-icons/si";
 import { TbArrowRightToArc } from "react-icons/tb";
+import { useConsultationModal } from "@/context/ConsultationModalContext";
 
 const Footer: React.FC = () => {
+  const { openModal } = useConsultationModal();
+
   return (
-    <footer className="font-sora relative overflow-hidden border-t border-dashed border-slate-200 bg-white pt-20 pb-12">
+    <footer className="font-sora relative overflow-hidden border-t border-dashed border-slate-200 bg-white pt-20 pb-8">
       <div
         className="pointer-events-none absolute -left-24 top-16 h-64 w-64 rounded-full bg-linear-to-br from-primary-50 to-transparent blur-3xl opacity-90"
         aria-hidden
@@ -128,24 +131,25 @@ const Footer: React.FC = () => {
               Let&apos;s discuss your next technical challenge — we&apos;ll
               reply within one business day.
             </p>
-            <a
-              href="#contact"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary-600 py-3 font-sora text-[0.83rem] lg:text-sm font-semibold text-white shadow-md transition-colors hover:bg-primary-700"
+            <button
+              type="button"
+              onClick={openModal}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary-600 py-3 font-sora text-[0.83rem] font-semibold text-white shadow-md transition-colors hover:bg-primary-700 lg:text-sm"
             >
               Book a consultation
               <TbArrowRightToArc className="h-4 w-4" aria-hidden />
-            </a>
+            </button>
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-8 border-t border-slate-200 pt-10 md:flex-row md:items-center">
+        <div className="flex flex-col items-center justify-between gap-4 lg:gap-8 border-t border-slate-200 pt-4 lg:pt-8 md:flex-row md:items-center">
           <p className="order-1 text-xs text-slate-500 md:order-1">
             &copy; {new Date().getFullYear()} APIHub Solutions Ltd. All rights
             reserved.
           </p>
 
           {/* privacy policy link */}
-          <div className="order-3 text-center text-xs text-secondary-600 underline underline-offset-2 font-semibold md:text-right">
+          <div className="order-2 text-center text-xs text-secondary-600 underline underline-offset-2 font-semibold md:text-right">
             <a href="#" className="hover:text-primary-600">
               Privacy Policy
             </a>

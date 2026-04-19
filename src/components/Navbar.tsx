@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { TbX, TbArrowRight, TbArrowRightToArc } from "react-icons/tb";
+import { useConsultationModal } from "@/context/ConsultationModalContext";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+  const { openModal } = useConsultationModal();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -78,7 +80,11 @@ const Navbar: React.FC = () => {
           {/* CTA + Mobile Toggle */}
           <div className="flex items-center gap-2">
            
-            <button className="bg-secondary-600 md:bg-primary-600 text-white px-5 py-2 lg:py-2.5 rounded-full text-[0.83rem] md:text-sm font-medium hover:bg-secondary-700 md:hover:bg-primary-700 transition shadow-md">
+            <button
+              type="button"
+              onClick={openModal}
+              className="rounded-full bg-secondary-600 px-5 py-2 text-[0.83rem] font-medium text-white shadow-md transition hover:bg-secondary-700 md:bg-primary-600 md:text-sm md:hover:bg-primary-700 lg:py-2.5"
+            >
               Book Consultation
             </button>
 
@@ -142,9 +148,16 @@ const Navbar: React.FC = () => {
                     </p>
                   </div>
 
-                  <button className="flex items-center gap-2 bg-primary-600 text-white px-5 py-2.5 rounded-full text-xs font-semibold hover:bg-primary-700 transition">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      openModal();
+                      setIsMenuOpen(false);
+                    }}
+                    className="flex items-center gap-2 rounded-full bg-primary-600 px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-primary-700"
+                  >
                     <span>Get Started</span>
-                    <TbArrowRightToArc className="w-4 h-4" />
+                    <TbArrowRightToArc className="h-4 w-4" />
                   </button>
                 </div>
 

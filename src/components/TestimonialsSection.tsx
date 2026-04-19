@@ -127,7 +127,10 @@ const TestimonialsMobileMarquee: React.FC = () => {
 
 export default function TestimonialsSection() {
   return (
-    <section className="border-t border-white/5 bg-linear-to-br from-primary-700 via-primary-600 to-secondary-700 pt-10 font-sora md:py-14 lg:py-24">
+    <section
+      id="testimonials"
+      className="border-t border-white/5 bg-linear-to-br from-primary-700 via-primary-600 to-secondary-700 pt-10 font-sora md:py-14 lg:py-24"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-4 lg:mb-10 text-center">
           <p className="mb-1 text-sm font-semibold text-white lg:text-[0.9rem]">

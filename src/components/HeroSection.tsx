@@ -19,6 +19,7 @@ import {
   SiNextdotjs,
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
+import { useConsultationModal } from "@/context/ConsultationModalContext";
 
 const stats = [
   { label: "Projects Delivered", value: 50, suffix: "+" },
@@ -71,6 +72,8 @@ const useCountUp = (end: number, duration: number = 1500) => {
 };
 
 const HeroSection: React.FC = () => {
+  const { openModal } = useConsultationModal();
+
   return (
     <section className="relative w-full overflow-hidden bg-white flex flex-col justify-center lg:h-[82vh] pt-10 lg:pt-24">
       {/* === DESKTOP BACKGROUND IMAGE === */}
@@ -112,14 +115,21 @@ const HeroSection: React.FC = () => {
 
             {/* CTA */}
             <div className="flex gap-2 md:gap-4 flex-wrap">
-              <button className="flex flex-row items-center gap-2 px-6 md:px-8 lg:px-10 py-2 md:py-3 bg-primary-600 text-white font-sora text-[0.83rem] md:text-sm rounded-full font-semibold hover:bg-primary-700 transition-all shadow-lg active:scale-95">
+              <button
+                type="button"
+                onClick={openModal}
+                className="flex flex-row items-center gap-2 rounded-full bg-primary-600 px-6 py-2 font-sora text-[0.83rem] font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95 md:px-8 md:py-3 md:text-sm lg:px-10"
+              >
                 <span>Start a Project</span>
-                <TbArrowRightToArc className="w-5 h-5" />
+                <TbArrowRightToArc className="h-5 w-5" />
               </button>
 
-              <button className="px-6 lg:px-8 py-2 md:py-2.5 border-2 border-slate-600 rounded-full font-bold hover:bg-slate-200 transition-colors duration-300 font-sora text-[0.8rem] md:text-sm">
+              <a
+                href="#services"
+                className="rounded-full border-2 border-slate-600 px-6 py-2 font-sora text-[0.8rem] font-bold transition-colors duration-300 hover:bg-slate-200 md:py-2.5 md:text-sm lg:px-8"
+              >
                 View Our Services
-              </button>
+              </a>
             </div>
           </div>
 
