@@ -1,10 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import {
-  motion,
-  useReducedMotion,
-  AnimatePresence,
-  useMotionValue,
-} from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { TbArrowRightToArc } from "react-icons/tb";
 
 type Solution = {
@@ -172,113 +167,59 @@ const CARD_GAP = 8; // px gap between cards
 
 interface CarouselCardProps {
   sol: Solution;
-  position: number; // -1 prev, 0 active, 1+ next peek distances
   onClick?: () => void;
   isActive: boolean;
-  reduceMotion: boolean;
-  index: number;
-  activeIndex: number;
 }
 
 const CarouselCard: React.FC<CarouselCardProps> = ({
   sol,
   isActive,
   onClick,
-  reduceMotion,
 }) => {
-  const spring = {
-    type: "spring" as const,
-    stiffness: 340,
-    damping: 36,
-    mass: 0.9,
-  };
-
   return (
-    <motion.div
+    <div
       onClick={onClick}
-      className="relative h-full w-full shrink-0 overflow-hidden rounded-4xl bg-slate-900"
-      animate={{
-        scale: isActive ? 1 : 0.88,
-        opacity: isActive ? 1 : 0.55,
-        filter: isActive ? "brightness(1)" : "brightness(0.7)",
-      }}
-      transition={reduceMotion ? { duration: 0 } : spring}
+      className={`carousel-mobile-card relative h-full w-full shrink-0 overflow-hidden rounded-4xl bg-slate-900 ${
+        isActive ? "is-active" : ""
+      }`}
       style={{ cursor: isActive ? "default" : "pointer" }}
     >
-      {/* Background image with Ken-Burns on active */}
-      <motion.img
+      <img
         src={sol.image}
         alt=""
         aria-hidden
         draggable={false}
-        className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
-        animate={
-          isActive ? { scale: 1.06, opacity: 0.7 } : { scale: 1, opacity: 0.5 }
-        }
-        transition={
-          reduceMotion
-            ? { duration: 0 }
-            : isActive
-              ? { duration: 7, ease: "linear" }
-              : { duration: 0.5, ease: easeOut }
-        }
+        className="carousel-mobile-image pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
       />
 
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-linear-to-b from-black/5 via-black/20 to-black/95" />
-      <motion.div
-        className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent"
-        animate={{ opacity: isActive ? 0.9 : 0.5 }}
-        transition={
-          reduceMotion ? { duration: 0 } : { duration: 0.5, ease: easeOut }
-        }
-      />
+      <div className="carousel-mobile-overlay absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
 
       {/* Content — only fully visible on active */}
       <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-7">
-        <AnimatePresence mode="wait">
-          {isActive && (
-            <motion.div
-              key={sol.title}
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={
-                reduceMotion
-                  ? { duration: 0 }
-                  : { duration: 0.38, ease: easeOut, delay: 0.06 }
-              }
-              className="flex flex-col"
-            >
-              <span className="mb-3 inline-block w-fit rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs tracking-wide font-sora font-bold text-white backdrop-blur-md">
-                {sol.tag}
-              </span>
+        <div
+          className={`carousel-mobile-content flex flex-col ${
+            isActive ? "is-active" : ""
+          }`}
+        >
+          <span className="mb-3 inline-block w-fit rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs tracking-wide font-sora font-bold text-white backdrop-blur-md">
+            {sol.tag}
+          </span>
 
-              <h4 className="mb-2.5 font-sora text-[1.2rem] font-bold leading-tight text-white sm:text-2xl">
-                {sol.title}
-              </h4>
+          <h4 className="mb-2.5 font-sora text-[1.2rem] font-bold leading-tight text-white sm:text-2xl">
+            {sol.title}
+          </h4>
 
-              <p className="line-clamp-3 text-[0.8rem] leading-relaxed text-slate-300 sm:text-sm">
-                {sol.desc}
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+          <p className="line-clamp-3 text-[0.8rem] leading-relaxed text-slate-300 sm:text-sm">
+            {sol.desc}
+          </p>
+        </div>
       </div>
 
       {/* Border ring */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 rounded-4xl"
-        animate={{
-          boxShadow: isActive
-            ? "inset 0 0 0 1px rgba(255,255,255,0.18), 0 28px 56px -10px rgba(0,0,0,0.55)"
-            : "inset 0 0 0 1px rgba(255,255,255,0.08)",
-        }}
-        transition={
-          reduceMotion ? { duration: 0 } : { duration: 0.45, ease: easeOut }
-        }
-      />
-    </motion.div>
+      <div className="carousel-mobile-ring pointer-events-none absolute inset-0 rounded-4xl" />
+    </div>
   );
 };
 
@@ -286,11 +227,10 @@ const SolutionsCarousel: React.FC<{ items: Solution[] }> = ({ items }) => {
   const n = items.length;
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const reduceMotion = useReducedMotion();
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
 
   // Drag state
-  const dragX = useMotionValue(0);
-  const isDragging = useRef(false);
   const dragStartX = useRef(0);
 
   const go = useCallback((next: number) => setIndex(((next % n) + n) % n), [n]);
@@ -320,28 +260,43 @@ const SolutionsCarousel: React.FC<{ items: Solution[] }> = ({ items }) => {
       >
         {/* The sliding track */}
         <div
-          className="flex touch-pan-y select-none"
-          style={{ gap: `${CARD_GAP}px`, padding: `0 ${PEEK_SIZE}px` }}
+          className={`solutions-carousel-track flex touch-pan-y select-none ${
+            isDragging ? "is-dragging" : ""
+          }`}
           onPointerDown={(e) => {
-            isDragging.current = true;
+            setIsDragging(true);
+            setPaused(true);
             dragStartX.current = e.clientX;
-            dragX.set(0);
+            setDragOffset(0);
           }}
           onPointerMove={(e) => {
-            if (!isDragging.current) return;
-            dragX.set(e.clientX - dragStartX.current);
+            if (!isDragging) return;
+            setDragOffset(e.clientX - dragStartX.current);
           }}
           onPointerUp={(e) => {
-            if (!isDragging.current) return;
-            isDragging.current = false;
+            if (!isDragging) return;
+            setIsDragging(false);
+            setPaused(false);
             const delta = e.clientX - dragStartX.current;
             if (delta < -48) go(index + 1);
             else if (delta > 48) go(index - 1);
-            dragX.set(0);
+            setDragOffset(0);
+          }}
+          onPointerCancel={() => {
+            setIsDragging(false);
+            setPaused(false);
+            setDragOffset(0);
           }}
           onPointerLeave={() => {
-            isDragging.current = false;
-            dragX.set(0);
+            if (!isDragging) return;
+            setIsDragging(false);
+            setPaused(false);
+            setDragOffset(0);
+          }}
+          style={{
+            gap: `${CARD_GAP}px`,
+            padding: `0 ${PEEK_SIZE}px`,
+            transform: `translate3d(calc(${-index} * (100vw - ${PEEK_SIZE * 2}px + ${CARD_GAP}px) + ${dragOffset}px), 0, 0)`,
           }}
         >
           {items.map((sol, i) => {
@@ -349,32 +304,20 @@ const SolutionsCarousel: React.FC<{ items: Solution[] }> = ({ items }) => {
             const isActive = dist === 0;
 
             return (
-              <motion.div
+              <div
                 key={sol.title}
                 className="shrink-0"
                 style={{
                   width: `calc(100vw - ${PEEK_SIZE * 2 + CARD_GAP * 2}px)`,
                   height: "min(450px, 70vh)",
                 }}
-                animate={{
-                  x: `calc(${-index * 100}% + ${-index * CARD_GAP}px)`,
-                }}
-                transition={
-                  reduceMotion
-                    ? { duration: 0 }
-                    : { type: "spring", stiffness: 360, damping: 40, mass: 0.9 }
-                }
               >
                 <CarouselCard
                   sol={sol}
-                  position={dist}
                   isActive={isActive}
                   onClick={isActive ? undefined : () => go(i)}
-                  reduceMotion={!!reduceMotion}
-                  index={i}
-                  activeIndex={index}
                 />
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -391,13 +334,10 @@ const SolutionsCarousel: React.FC<{ items: Solution[] }> = ({ items }) => {
             onClick={() => go(i)}
             className="touch-manipulation rounded-full p-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
           >
-            <motion.span
-              className={`block h-2 rounded-full ${i === index ? "bg-primary-600" : "bg-slate-400/80"}`}
-              animate={{
-                width: i === index ? 28 : 8,
-                opacity: i === index ? 1 : 0.9,
-              }}
-              transition={{ type: "spring", stiffness: 420, damping: 36 }}
+            <span
+              className={`carousel-mobile-dot block h-2 rounded-full ${
+                i === index ? "is-active bg-primary-600" : "bg-slate-400/80"
+              }`}
             />
           </button>
         ))}
