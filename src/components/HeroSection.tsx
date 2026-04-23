@@ -91,7 +91,7 @@ const HeroSection: React.FC = () => {
 
       {/* === CONTENT === */}
       <div className="relative z-10 max-w-screen-2xl mx-auto px-4 w-full py-16 lg:py-0">
-        <div className="max-w-3xl">
+        <div className="w-full lg:max-w-3xl">
           {/* HEADLINE */}
           <h1 className="mb-3 md:mb-4 lg:mb-6 text-[1.7rem] md:text-4xl lg:text-6xl font-sora font-extrabold tracking-tight text-slate-900 leading-tight">
             Building Smarter Digital
@@ -99,14 +99,14 @@ const HeroSection: React.FC = () => {
             <span className="bg-linear-to-r from-blue-700 to-green-600 bg-clip-text text-transparent">
               Systems That Power
             </span>{" "}
-            <br />
+            <br className="hidden lg:block" />
             <span className="bg-linear-to-r from-slate-800 via-slate-700 to-blue-800 bg-clip-text text-transparent">
               Modern Businesses
             </span>
           </h1>
 
           {/* CARD */}
-          <div className="max-w-2xl">
+          <div className="lg:max-w-2xl">
             <p className="text-sm md:text-base lg:text-lg text-slate-800 font-sora leading-relaxed mb-6">
               Our team architects scalable software platforms, from fintech
               payment solutions to enterprise grade systems engineered for
@@ -134,7 +134,7 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* === STATS === */}
-          <div className="mt-6 grid grid-cols-3 gap-4 max-w-lg border-t border-dashed border-slate-400 pt-4">
+          <div className="mt-6 grid grid-cols-3 gap-4 lg:max-w-lg border-t border-dashed border-slate-400 pt-4">
             {stats.map((stat, i) => {
               const count = useCountUp(stat.value);
 
@@ -152,7 +152,7 @@ const HeroSection: React.FC = () => {
             })}
           </div>
           {/* === TECH MARQUEE === */}
-          <div className="mt-8 lg:mt-10 max-w-176 -mx-4 relative overflow-hidden">
+          <div className="mt-8 lg:mt-10 lg:max-w-176 -mx-4 relative overflow-hidden">
             {/* Fade edges (premium touch) */}
             <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-linear-to-r from-white to-transparent z-10" />
             <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-linear-to-l from-white to-transparent z-10" />
@@ -180,7 +180,7 @@ const HeroSection: React.FC = () => {
       {/* === MOBILE IMAGE (NEW) === */}
       <div className="relative lg:hidden -mt-15 w-full">
         <div
-          className="w-full h-[320px] bg-contain bg-center bg-no-repeat"
+          className="w-full h-[320px] md:h-[620px] bg-contain bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('/herodemo.png')`,
           }}

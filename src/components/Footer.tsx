@@ -14,8 +14,8 @@ const Footer: React.FC = () => {
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-12">
-        <div className="mb-16 flex flex-col lg:flex-row gap-8 lg:gap-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 mdpx-6 lg::px-12">
+        <div className="mb-16 flex flex-col md:flex-row gap-8 lg:gap-10">
           {/* Brand */}
           <div className="relative">
             <img

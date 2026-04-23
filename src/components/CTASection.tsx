@@ -64,7 +64,7 @@ const CTASection: React.FC = () => {
           </button>
         </div>
 
-        <div className="mt-6 lg:mt-8 grid gap-3 lg:grid-cols-3 lg:gap-5">
+        <div className="mt-6 lg:mt-8 grid gap-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           <div className="group flex gap-2 justify-between lg:gap-4 rounded-[1.3rem] lg:rounded-3xl border border-slate-200 bg-slate-50/80 p-4 lg:p-5 transition-colors hover:border-primary-200 hover:bg-white">
             <span className="flex h-10 lg:h-12 w-10 lg:w-12 shrink-0 items-center justify-center rounded-[0.6rem] lg:rounded-2xl bg-slate-200 text-slate-700">
               <TbMailShare className="h-6 w-6" aria-hidden />

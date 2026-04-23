@@ -308,7 +308,7 @@ const SolutionsCarousel: React.FC<{ items: Solution[] }> = ({ items }) => {
                 key={sol.title}
                 className="shrink-0"
                 style={{
-                  width: `calc(100vw - ${PEEK_SIZE * 2 + CARD_GAP * 2}px)`,
+                  width: `calc(100vw - ${PEEK_SIZE * 2 }px)`,
                   height: "min(450px, 70vh)",
                 }}
               >
@@ -347,7 +347,7 @@ const SolutionsCarousel: React.FC<{ items: Solution[] }> = ({ items }) => {
 };
 
 // Peek constants — defined outside component so CarouselCard can reference them
-const PEEK_SIZE = 45; // px of side card visible
+const PEEK_SIZE = 50; // px of side card visible
 
 // ─── Section ─────────────────────────────────────────────────────────────────
 
@@ -385,7 +385,7 @@ const SolutionsSection: React.FC = () => (
       </div>
 
       {/* Bottom strip */}
-      <div className="mt-10 md:mt-12 lg:mt-14 flex flex-col font-sora items-center justify-between gap-6 border-t border-dashed border-slate-400 pt-10 sm:flex-row">
+      <div className="mt-10 md:mt-12 lg:mt-14 flex flex-col font-sora items-center justify-between gap-6 border-t border-dashed border-slate-400 pt-10 lg:flex-row">
         <p className="max-w-xl text-center text-sm text-slate-600 sm:text-left">
           Need a blended engagement? We often combine{" "}
           <span className="font-semibold text-slate-800">
