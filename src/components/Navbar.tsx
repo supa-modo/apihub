@@ -40,14 +40,13 @@ const Navbar: React.FC = () => {
     { name: "Home", href: "#" },
     { name: "Our Services", href: "#services" },
     { name: "Expertise", href: "#solutions" },
-    { name: "Client Work", href: "#work" },
     { name: "About Us", href: "#about" },
     { name: "Talk to Us", href: "#contact" },
   ];
 
   return (
     <nav className="fixed top-0 w-full z-50 flex justify-center py-3 px-2 lg:p-6">
-      <div ref={navRef} className="relative w-full max-w-screen-2xl">
+      <div ref={navRef} className="relative w-full max-w-7xl">
         
         {/* === NAVBAR === */}
         <div
