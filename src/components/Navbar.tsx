@@ -40,6 +40,8 @@ const Navbar: React.FC = () => {
     { name: "Home", href: "#" },
     { name: "Our Services", href: "#services" },
     { name: "Expertise", href: "#solutions" },
+    { name: "Client Work", href: "#work" },
+    { name: "About Us", href: "#about" },
     { name: "Talk to Us", href: "#contact" },
   ];
 
@@ -53,7 +55,7 @@ const Navbar: React.FC = () => {
           ${
             isScrolled
               ? "bg-white/80 backdrop-blur-sm shadow-lg border-gray-400/20"
-              : "bg-white shadow-md shadow-primary-600/20 border-gray-400/40"
+              : "bg-white shadow-lg shadow-primary-600/20 border-gray-400/40"
           }`}
         >
           {/* Logo - clickable to home page */}
@@ -66,12 +68,12 @@ const Navbar: React.FC = () => {
           </a>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-5 lg:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[0.83rem] lg:text-[0.9rem] font-bold font-sora text-gray-500 hover:text-primary-600 transition"
+                className="text-[0.83rem] lg:text-[0.9rem] font-bold font-sora text-gray-900 hover:text-primary-700 transition"
               >
                 {link.name}
               </a>
@@ -84,7 +86,7 @@ const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={openModal}
-              className="rounded-full bg-secondary-600 px-5 py-2 text-[0.83rem] font-medium text-white shadow-md transition hover:bg-secondary-700 md:bg-primary-600 md:text-sm md:hover:bg-primary-700 lg:py-2.5"
+              className="rounded-full bg-secondary-600 px-5 py-2 text-[0.83rem] font-medium text-white shadow-lg transition hover:bg-secondary-700 md:bg-primary-600 md:text-sm md:hover:bg-primary-700 lg:py-2.5 shadow-primary-600/60"
             >
               Book Consultation
             </button>

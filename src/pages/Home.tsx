@@ -4,6 +4,8 @@ import ServicesSection from "@/components/ServicesSection";
 import SolutionsSection from "@/components/SolutionsSection";
 import WhyChooseUs from "@/components/WhyChooseUsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import ProcessSection from "@/components/ProcessSection";
+import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -20,7 +22,9 @@ const LandingPage: React.FC = () => {
           <ServicesSection />
           <SolutionsSection />
           <WhyChooseUs />
+          <ProcessSection />
           <TestimonialsSection />
+          <FAQSection />
           <CTASection />
         </main>
         <Footer />

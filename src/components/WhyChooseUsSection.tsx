@@ -31,7 +31,10 @@ const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section className="lg:pt-10 pb-24 bg-white relative overflow-hidden">
+    <section
+      id="about"
+      className="lg:pt-10 pb-10 md:pb-16 lg:pb-24 bg-white relative overflow-hidden"
+    >
       <div className="font-sora max-w-screen-2xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid lg:grid-cols-12 gap-6 md:gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-5">
@@ -64,7 +67,7 @@ const WhyChooseUs: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="hidden md:grid lg:col-span-7  grid-cols-1 md:grid-cols-2 gap-4">
             {reasons.map((reason, i) => (
               <div
                 key={i}

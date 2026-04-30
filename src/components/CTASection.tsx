@@ -49,7 +49,7 @@ const CTASection: React.FC = () => {
         <div className="mt-8 md:mt-10 flex flex-wrap items-center justify-center gap-3 md:gap-4">
           <a
             href="mailto:hello@apihub.solutions?subject=Project%20inquiry"
-            className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-5 md:px-6 py-2.5 font-sora text-[0.83rem] md:text-sm lg:text-[0.9rem] font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95  md:py-3"
+            className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-5 md:px-6 py-2.5 font-sora text-[0.83rem] md:text-sm lg:text-[0.9rem] font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95  md:py-3 shadow-primary-600/60"
           >
             <span className="hidden md:block">Contact the team</span>
             <span className="block md:hidden">Contact Us</span>
@@ -58,7 +58,7 @@ const CTASection: React.FC = () => {
           <button
             type="button"
             onClick={openModal}
-            className="rounded-full border-2 border-slate-600 px-5 py-2 font-sora text-[0.83rem] font-bold text-slate-800 transition-colors duration-300 hover:bg-slate-200 md:px-6 md:text-sm lg:text-[0.9rem] md:py-2.5"
+            className="rounded-full border-2 border-slate-600 px-5 py-2 font-sora text-[0.83rem] font-bold text-slate-800 transition-colors duration-300 hover:bg-slate-200 md:px-6 md:text-sm lg:text-[0.9rem] md:py-2.5 shadow-lg shadow-slate-200"
           >
             Book Consultation Call
           </button>

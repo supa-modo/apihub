@@ -134,7 +134,7 @@ const Footer: React.FC = () => {
             <button
               type="button"
               onClick={openModal}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary-600 py-3 font-sora text-[0.83rem] font-semibold text-white shadow-md transition-colors hover:bg-primary-700 lg:text-sm"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary-600 py-3 font-sora text-[0.83rem] font-semibold text-white shadow-lg transition-colors hover:bg-primary-700 lg:text-sm shadow-primary-600/50"
             >
               Book a consultation
               <TbArrowRightToArc className="h-4 w-4" aria-hidden />

@@ -71,6 +71,26 @@ const useCountUp = (end: number, duration: number = 1500) => {
   return count;
 };
 
+const HeroStat: React.FC<{ label: string; value: number; suffix: string }> = ({
+  label,
+  value,
+  suffix,
+}) => {
+  const count = useCountUp(value);
+
+  return (
+    <div className="text-center group">
+      <p className="text-base md:text-lg lg:text-xl font-sora font-extrabold text-slate-900 transition-transform duration-300 group-hover:scale-105">
+        {count}
+        {suffix}
+      </p>
+      <p className="text-[0.7rem] md:text-[0.83rem] lg:text-sm font-sora text-slate-500">
+        {label}
+      </p>
+    </div>
+  );
+};
+
 const HeroSection: React.FC = () => {
   const { openModal } = useConsultationModal();
 
@@ -94,23 +114,23 @@ const HeroSection: React.FC = () => {
         <div className="w-full lg:max-w-3xl">
           {/* HEADLINE */}
           <h1 className="mb-3 md:mb-4 lg:mb-6 text-[1.7rem] md:text-4xl lg:text-6xl font-sora font-extrabold tracking-tight text-slate-900 leading-tight">
-            Building Smarter Digital
+            Custom Software, APIs &
             <br />
             <span className="bg-linear-to-r from-blue-700 to-green-600 bg-clip-text text-transparent">
-              Systems That Power
+              Payment Systems
             </span>{" "}
             <br className="hidden lg:block" />
             <span className="bg-linear-to-r from-slate-800 via-slate-700 to-blue-800 bg-clip-text text-transparent">
-              Modern Businesses
+              Built for Growth
             </span>
           </h1>
 
           {/* CARD */}
           <div className="lg:max-w-2xl">
             <p className="text-sm md:text-base lg:text-lg text-slate-800 font-sora leading-relaxed mb-6">
-              Our team architects scalable software platforms, from fintech
-              payment solutions to enterprise grade systems engineered for
-              performance, security, and long-term growth.
+              APIHub designs and builds secure web platforms, mobile apps,
+              API integrations, and payment automation systems for businesses
+              in Kenya and across Africa that need reliable digital operations.
             </p>
 
             {/* CTA */}
@@ -118,7 +138,7 @@ const HeroSection: React.FC = () => {
               <button
                 type="button"
                 onClick={openModal}
-                className="flex flex-row items-center gap-2 rounded-full bg-primary-600 px-6 py-2 font-sora text-[0.83rem] font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95 md:px-8 md:py-3 md:text-sm lg:px-10"
+                className="flex flex-row items-center gap-2 rounded-full bg-primary-600 px-6 py-2 font-sora text-[0.83rem] font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95 md:px-8 md:py-3 md:text-sm lg:px-10 shadow-primary-600/60 "
               >
                 <span>Start a Project</span>
                 <TbArrowRightToArc className="h-5 w-5" />
@@ -126,7 +146,7 @@ const HeroSection: React.FC = () => {
 
               <a
                 href="#services"
-                className="rounded-full border-2 border-slate-600 px-6 py-2 font-sora text-[0.8rem] font-bold transition-colors duration-300 hover:bg-slate-200 md:py-2.5 md:text-sm lg:px-8"
+                className="rounded-full border-2 border-slate-600 px-6 py-2 font-sora text-[0.8rem] font-bold transition-colors duration-300 hover:bg-slate-200 md:py-2.5 md:text-sm lg:px-8 shadow-lg shadow-slate-200"
               >
                 View Our Services
               </a>
@@ -135,21 +155,14 @@ const HeroSection: React.FC = () => {
 
           {/* === STATS === */}
           <div className="mt-6 grid grid-cols-3 gap-4 lg:max-w-lg border-t border-dashed border-slate-400 pt-4">
-            {stats.map((stat, i) => {
-              const count = useCountUp(stat.value);
-
-              return (
-                <div key={i} className="text-center group">
-                  <p className="text-base md:text-lg lg:text-xl font-sora font-extrabold text-slate-900 transition-transform duration-300 group-hover:scale-105">
-                    {count}
-                    {stat.suffix}
-                  </p>
-                  <p className="text-[0.7rem] md:text-[0.83rem] lg:text-sm font-sora text-slate-500">
-                    {stat.label}
-                  </p>
-                </div>
-              );
-            })}
+            {stats.map((stat) => (
+              <HeroStat
+                key={stat.label}
+                label={stat.label}
+                value={stat.value}
+                suffix={stat.suffix}
+              />
+            ))}
           </div>
           {/* === TECH MARQUEE === */}
           <div className="mt-8 lg:mt-10 lg:max-w-176 -mx-4 relative overflow-hidden">
@@ -177,7 +190,7 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* === MOBILE IMAGE (NEW) === */}
+      {/* === MOBILE IMAGE === */}
       <div className="relative lg:hidden -mt-15 w-full">
         <div
           className="w-full h-[320px] md:h-[620px] bg-contain bg-center bg-no-repeat"

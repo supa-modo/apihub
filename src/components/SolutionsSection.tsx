@@ -395,7 +395,7 @@ const SolutionsSection: React.FC = () => (
         </p>
         <a
           href="#contact"
-          className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-8 py-3 font-sora text-sm font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95"
+          className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-8 py-3 font-sora text-sm font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95 shadow-primary-600/60"
         >
           Start a Project With Us
           <TbArrowRightToArc className="h-5 w-5" />

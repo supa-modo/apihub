@@ -1,0 +1,18 @@
+{
+  "name": "APIHub Solutions",
+  "short_name": "APIHub",
+  "description": "Custom software, API integrations, payment automation, and cloud systems for businesses in Kenya and Africa.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
