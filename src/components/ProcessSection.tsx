@@ -42,14 +42,21 @@ const steps = [
 
 const ProcessSection: React.FC = () => {
   return (
-    <section className="bg-whitelg:pt-10 pb-24 font-sora">
+    <section
+      id="process"
+      className="bg-white lg:pt-10 pb-24 font-sora"
+      aria-labelledby="process-heading"
+    >
       <div className="mx-auto max-w-screen-2xl px-4 lg:px-12">
         <div className="mb-8 flex flex-col justify-between gap-4 md:mb-10 lg:mb-12 lg:flex-row lg:items-end">
           <div className="max-w-3xl">
             <p className="mb-2 text-sm font-bold text-primary-600">
               Our Delivery approach
             </p>
-            <h2 className="text-[1.7rem] font-extrabold leading-tight tracking-tight text-slate-900 md:text-[2rem] lg:text-[2.45rem]">
+            <h2
+              id="process-heading"
+              className="text-[1.7rem] font-extrabold leading-tight tracking-tight text-slate-900 md:text-[2rem] lg:text-[2.45rem]"
+            >
               A practical path from idea to dependable software
             </h2>
           </div>

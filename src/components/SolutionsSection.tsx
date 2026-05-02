@@ -20,8 +20,7 @@ const solutions: Solution[] = [
     title: "Property Management",
     desc: "End-to-end tenant portals, automated rent collection, and facility maintenance SaaS platforms that streamline operations for large scale real estate portfolios.",
     tag: "Proptech",
-    image:
-      "/property.webp",
+    image: "/property.webp",
   },
   {
     title: "Payment Solutions",
@@ -33,8 +32,7 @@ const solutions: Solution[] = [
     title: "Enterprise Systems",
     desc: "Multi-tenant B2B platforms featuring usage-based billing, advanced AI analytics, and scalable cloud infrastructure designed for global performance.",
     tag: "Corporate",
-    image:
-      "/enterprise.webp",
+    image: "/enterprise.webp",
   },
 ];
 
@@ -308,7 +306,7 @@ const SolutionsCarousel: React.FC<{ items: Solution[] }> = ({ items }) => {
                 key={sol.title}
                 className="shrink-0"
                 style={{
-                  width: `calc(100vw - ${PEEK_SIZE * 2 }px)`,
+                  width: `calc(100vw - ${PEEK_SIZE * 2}px)`,
                   height: "min(450px, 70vh)",
                 }}
               >

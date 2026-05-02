@@ -14,12 +14,12 @@ const Footer: React.FC = () => {
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 mdpx-6 lg::px-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-6 lg:px-12">
         <div className="mb-16 flex flex-col md:flex-row gap-8 lg:gap-10">
           {/* Brand */}
           <div className="relative">
             <img
-              src="/logo2.png"
+              src="/logo2.webp"
               alt="APIHub Solutions"
               className="mb-4 h-16 -ml-2 w-auto"
             />
@@ -32,21 +32,21 @@ const Footer: React.FC = () => {
                 Follow Us:
               </span>
               <a
-                href="#"
+                href="/"
                 className="rounded-full border border-slate-200 p-2.5 text-slate-500 transition-colors  hover:bg-primary-600 hover:text-white"
                 aria-label="LinkedIn"
               >
                 <FaLinkedin className="h-4 w-4" />
               </a>
               <a
-                href="#"
+                href="/"
                 className="rounded-full border border-slate-200 p-2.5 text-slate-500 transition-colors  hover:bg-primary-600 hover:text-white"
                 aria-label="GitHub"
               >
                 <SiGithub className="h-4 w-4" />
               </a>
               <a
-                href="#"
+                href="/"
                 className="rounded-full border border-slate-200 p-2.5 text-slate-500 transition-colors  hover:bg-primary-600 hover:text-white"
                 aria-label="X"
               >
@@ -150,7 +150,7 @@ const Footer: React.FC = () => {
 
           {/* privacy policy link */}
           <div className="order-2 text-center text-xs text-secondary-600 underline underline-offset-2 font-semibold md:text-right">
-            <a href="#" className="hover:text-primary-600">
+            <a href="#contact" className="hover:text-primary-600">
               Privacy Policy
             </a>
           </div>

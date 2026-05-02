@@ -31,6 +31,7 @@ const ServicesSection: React.FC = () => {
     <section
       id="services"
       className="relative overflow-hidden bg-white pt-8 lg:pt-12 pb-14"
+      aria-labelledby="services-heading"
     >
       <div
         className="pointer-events-none absolute -left-32 top-24 h-96 w-96 rounded-full bg-linear-to-br from-primary-100/80 to-transparent blur-3xl"
@@ -47,8 +48,14 @@ const ServicesSection: React.FC = () => {
 
       <div className="relative z-10 mx-auto max-w-screen-2xl px-4 lg:px-12">
         <div className="mb-10 flex flex-col gap-6 lg:mb-12 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
-          <div className="max-w-3xl">
+          <div className="max-w-4xl">
             <div>
+              <h2
+                id="services-heading"
+                className="sr-only"
+              >
+                Software engineering services
+              </h2>
               <p className="font-sora text-lg text-slate-900 md:text-xl lg:text-2xl">
                 We build focused digital systems for
                 <span className="font-semibold text-slate-400">

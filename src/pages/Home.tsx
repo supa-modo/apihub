@@ -15,7 +15,10 @@ import { ConsultationModalProvider } from "@/context/ConsultationModalContext";
 const LandingPage: React.FC = () => {
   return (
     <ConsultationModalProvider>
-      <div className="min-h-screen bg-white font-sans text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-700">
+      <div
+        id="top"
+        className="min-h-screen bg-white font-sans text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-700"
+      >
         <Navbar />
         <main>
           <HeroSection />

@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#" },
+    { name: "Home", href: "#top" },
     { name: "Our Services", href: "#services" },
     { name: "Expertise", href: "#solutions" },
     { name: "About Us", href: "#about" },
@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
           {/* Logo - clickable to home page */}
           <a href="/" className="cursor-pointer">
             <img
-              src="/logo2.png"
+              src="/logo2.webp"
               alt="APIHub Solutions"
               className="w-30 md:w-32 lg:w-36 cursor-pointer"
             />
@@ -72,7 +72,7 @@ const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[0.83rem] lg:text-[0.9rem] font-bold font-sora text-gray-900 hover:text-primary-700 transition"
+                className="relative inline-block py-1 text-[0.83rem] lg:text-[0.9rem] font-bold font-sora text-secondary-700 transition-colors duration-300 hover:text-primary-700 focus-visible:outline-none focus-visible:text-primary-700 after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-linear-to-r after:from-primary-600 after:to-secondary-600 after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 focus-visible:after:scale-x-100 motion-reduce:after:transition-none motion-reduce:hover:after:scale-x-100"
               >
                 {link.name}
               </a>

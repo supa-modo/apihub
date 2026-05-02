@@ -2,10 +2,19 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath, URL } from "node:url";
+import { vitePrerenderPlugin } from "vite-prerender-plugin";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    vitePrerenderPlugin({
+      renderTarget: "#root",
+      prerenderScript: fileURLToPath(new URL("./src/prerender.tsx", import.meta.url)),
+      additionalPrerenderRoutes: ["/"],
+    }),
+  ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),

@@ -25,13 +25,21 @@ const faqs = [
 
 const FAQSection: React.FC = () => {
   return (
-    <section className="bg-slate-50 lg:pt-10 py-10 md:pb-16 lg:pb-24 font-sora">
+    <section
+      className="bg-slate-50 lg:pt-10 py-10 md:pb-16 lg:pb-24 font-sora"
+      aria-labelledby="faq-heading"
+    >
       <div className="mx-auto max-w-screen-2xl px-4 lg:px-12">
         <div className="mb-4 max-w-3xl md:mb-10 lg:mb-6">
           <p className="text-sm font-bold text-primary-600">
             Common project questions
           </p>
-          
+          <h2
+            id="faq-heading"
+            className="mt-2 text-[1.3rem] font-extrabold tracking-tight text-slate-900 md:text-[1.5rem] lg:text-[1.75rem]"
+          >
+            FAQs about building with APIHub
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

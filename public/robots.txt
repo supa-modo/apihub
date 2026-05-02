@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
 
+# Allow important assets
+Allow: /*.svg
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.webp
+Allow: /*.css
+Allow: /*.js
+
+# Sitemap location
 Sitemap: https://apihub.co.ke/sitemap.xml

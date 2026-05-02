@@ -49,9 +49,11 @@ const techStack = [
 ];
 
 const useCountUp = (end: number, duration: number = 1500) => {
-  const [count, setCount] = useState(0);
+  const isBrowser = typeof window !== "undefined";
+  const [count, setCount] = useState(() => (isBrowser ? 0 : end));
 
   useEffect(() => {
+    if (!isBrowser) return;
     let start = 0;
     const increment = end / (duration / 16);
 
@@ -101,7 +103,7 @@ const HeroSection: React.FC = () => {
         <div
           className="absolute top-0 right-0 h-full w-[75%] bg-no-repeat bg-contain bg-right"
           style={{
-            backgroundImage: `url('/herodemo.png')`,
+            backgroundImage: `url('/hero.webp')`,
           }}
         />
 
@@ -113,24 +115,24 @@ const HeroSection: React.FC = () => {
       <div className="relative z-10 max-w-screen-2xl mx-auto px-4 w-full py-16 lg:py-0">
         <div className="w-full lg:max-w-3xl">
           {/* HEADLINE */}
-          <h1 className="mb-3 md:mb-4 lg:mb-6 text-[1.7rem] md:text-4xl lg:text-6xl font-sora font-extrabold tracking-tight text-slate-900 leading-tight">
-            Custom Software, APIs &
-            <br />
+          <h1 className="mb-3 md:mb-4 lg:mb-6 text-[1.65rem] md:text-3xl lg:text-5xl font-sora font-extrabold tracking-tight text-slate-900 leading-tight">
+            Custom Software, Integrations,
+            <br/>
             <span className="bg-linear-to-r from-blue-700 to-green-600 bg-clip-text text-transparent">
-              Payment Systems
-            </span>{" "}
-            <br className="hidden lg:block" />
+            APIs &amp; Payment Solutions
+            </span>
+            <br />
             <span className="bg-linear-to-r from-slate-800 via-slate-700 to-blue-800 bg-clip-text text-transparent">
-              Built for Growth
+              Engineered for growth
             </span>
           </h1>
 
           {/* CARD */}
           <div className="lg:max-w-2xl">
             <p className="text-sm md:text-base lg:text-lg text-slate-800 font-sora leading-relaxed mb-6">
-              APIHub designs and builds secure web platforms, mobile apps,
-              API integrations, and payment automation systems for businesses
-              in Kenya and across Africa that need reliable digital operations.
+              APIHub designs and builds secure web platforms, mobile apps, API
+              integrations, and payment automation systems for businesses in
+              Kenya and across Africa that need reliable digital operations.
             </p>
 
             {/* CTA */}
@@ -138,7 +140,7 @@ const HeroSection: React.FC = () => {
               <button
                 type="button"
                 onClick={openModal}
-                className="flex flex-row items-center gap-2 rounded-full bg-primary-600 px-6 py-2 font-sora text-[0.83rem] font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95 md:px-8 md:py-3 md:text-sm lg:px-10 shadow-primary-600/60 "
+                className="flex flex-row items-center gap-2 rounded-full bg-primary-600 px-6 py-2 font-sora text-[0.83rem] font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95 md:px-8 md:py-3 md:text-sm lg:px-10 shadow-primary-600/60 hover:cursor-pointer"
               >
                 <span>Start a Project</span>
                 <TbArrowRightToArc className="h-5 w-5" />
@@ -195,7 +197,7 @@ const HeroSection: React.FC = () => {
         <div
           className="w-full h-[320px] md:h-[620px] bg-contain bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/herodemo.png')`,
+            backgroundImage: `url('/hero.webp')`,
           }}
         />
 
