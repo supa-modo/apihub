@@ -9,6 +9,24 @@ const Navbar: React.FC = () => {
   const navRef = useRef<HTMLDivElement>(null);
   const { openModal } = useConsultationModal();
 
+  const geometricPatternBgUrl = React.useMemo(() => {
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'>
+  <defs>
+    <pattern id='p' width='60' height='60' patternUnits='userSpaceOnUse'>
+      <g fill='none' stroke='rgb(15 23 42)' stroke-opacity='0.18' stroke-width='2'>
+        <path d='M30 0 L60 15 L30 30 L0 15 Z' />
+        <path d='M30 30 L60 45 L30 60 L0 45 Z' />
+        <path d='M0 15 L0 45' />
+        <path d='M60 15 L60 45' />
+        <path d='M30 0 L30 60' stroke-opacity='0.10' />
+      </g>
+    </pattern>
+  </defs>
+  <rect width='100%' height='100%' fill='url(#p)'/>
+</svg>`;
+    return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
@@ -50,15 +68,35 @@ const Navbar: React.FC = () => {
         
         {/* === NAVBAR === */}
         <div
-          className={`transition-all duration-500 px-3 py-2 border flex items-center justify-between rounded-full
+          className={`relative overflow-hidden transition-all duration-500 px-3 py-2 border flex items-center justify-between rounded-full
           ${
             isScrolled
               ? "bg-white/80 backdrop-blur-sm shadow-lg border-gray-400/20"
               : "bg-white shadow-lg shadow-primary-600/20 border-gray-400/40"
           }`}
         >
+          {/* Sleek background treatment (middle-right bias) */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-500"
+          >
+            {/* Soft tint sweep to keep it modern */}
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary-50/25 to-secondary-50/35 opacity-80" />
+
+            {/* Geometric pattern (inspired by reference), faded in from mid-right */}
+            <div className="absolute inset-0 opacity-[0.38] mix-blend-multiply mask-[radial-gradient(70%_90%_at_72%_50%,black,transparent)]">
+              <div
+                className="absolute inset-0 bg-repeat bg-size-[60px_60px] bg-position-[10px_6px]"
+                style={{ backgroundImage: geometricPatternBgUrl }}
+              />
+            </div>
+
+            {/* Gentle glow behind the pattern */}
+            <div className="absolute -right-10 top-1/2 h-28 w-72 -translate-y-1/2 rounded-full blur-2xl bg-[radial-gradient(closest-side_at_50%_50%,rgba(37,99,235,0.16),rgba(99,102,241,0.08),transparent)]" />
+          </div>
+
           {/* Logo - clickable to home page */}
-          <a href="/" className="cursor-pointer">
+          <a href="/" className="relative z-10 cursor-pointer">
             <img
               src="/logo2.webp"
               alt="APIHub Solutions"
@@ -67,7 +105,7 @@ const Navbar: React.FC = () => {
           </a>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-5 lg:gap-8">
+          <div className="relative z-10 hidden md:flex items-center gap-5 lg:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -80,7 +118,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* CTA + Mobile Toggle */}
-          <div className="flex items-center gap-2">
+          <div className="relative z-10 flex items-center gap-2">
            
             <button
               type="button"
