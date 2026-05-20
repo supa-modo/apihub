@@ -48,7 +48,7 @@ const CTASection: React.FC = () => {
 
         <div className="mt-8 md:mt-10 flex flex-wrap items-center justify-center gap-3 md:gap-4">
           <a
-            href="mailto:hello@apihub.solutions?subject=Project%20inquiry"
+            href="mailto:hello@apihub.co.ke?subject=Project%20inquiry"
             className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-5 md:px-6 py-2.5 font-sora text-[0.83rem] md:text-sm lg:text-[0.9rem] font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95  md:py-3 shadow-primary-600/60"
           >
             <span className="hidden md:block">Contact the team</span>
@@ -69,25 +69,25 @@ const CTASection: React.FC = () => {
             <span className="flex h-10 lg:h-12 w-10 lg:w-12 shrink-0 items-center justify-center rounded-[0.6rem] lg:rounded-2xl bg-slate-200 text-slate-700">
               <TbMailShare className="h-6 w-6" aria-hidden />
             </span>
-            <a href="mailto:hello@apihub.solutions" className="">
+            <a href="mailto:hello@apihub.co.ke" className="">
               <div className="min-w-0 text-left">
                 <h3 className="font-sora text-[0.8rem] lg:text-[0.9rem] font-bold text-slate-500">
                   Email
                 </h3>
                 <p className="mt-0.5 text-xs lg:text-sm font-medium text-slate-900">
-                  hello@apihub.solutions
+                  hello@apihub.co.ke
                 </p>
               </div>
             </a>
             <div className="w-px h-10 bg-slate-300" />
 
-            <a href="tel:+254712345678" className="">
+            <a href="tel:+254790193402" className="">
               <div className="min-w-0 text-left">
                 <h3 className="font-sora text-xs lg:text-sm font-bold text-slate-500">
                   Phone
                 </h3>
                 <p className="mt-0.5 text-xs lg:text-sm font-medium text-slate-900">
-                  +254 712 345 678
+                  +254 790 193 402
                 </p>
               </div>
             </a>

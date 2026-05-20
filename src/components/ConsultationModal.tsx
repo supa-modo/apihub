@@ -99,7 +99,7 @@ const ConsultationModal: React.FC = () => {
         .filter(Boolean)
         .join("\n"),
     );
-    window.location.href = `mailto:hello@apihub.solutions?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:hello@apihub.co.ke?subject=${subject}&body=${body}`;
     setSubmitted(true);
     window.setTimeout(() => {
       closeModal();
@@ -172,10 +172,10 @@ const ConsultationModal: React.FC = () => {
                 <p className="mt-2 text-slate-600">
                   If nothing opens, email{" "}
                   <a
-                    href="mailto:hello@apihub.solutions"
+                    href="mailto:hello@apihub.co.ke"
                     className="font-medium text-primary-600 underline-offset-2 hover:underline"
                   >
-                    hello@apihub.solutions
+                    hello@apihub.co.ke
                   </a>
                 </p>
               </div>
