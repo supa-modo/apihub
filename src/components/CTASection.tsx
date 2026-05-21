@@ -32,7 +32,7 @@ const CTASection: React.FC = () => {
       <div className="relative z-10 mx-auto max-w-screen-2xl px-4 text-center lg:px-12">
         <h2
           id="cta-heading"
-          className="mx-auto max-w-3xl font-sora text-[1.7rem] md:text-[1.9rem] lg:text-[2.3rem] font-extrabold tracking-tight text-slate-900 leading-tight"
+          className="mx-auto max-w-3xl font-sora text-[1.4rem] sm:text-[1.6rem] md:text-[1.8rem] lg:text-[2rem] xl:text-[2.3rem] font-extrabold tracking-tight text-slate-900 leading-tight"
         >
           Ready to launch your next{" "}
           <span className="bg-linear-to-r from-blue-700 to-green-600 bg-clip-text text-transparent">
@@ -41,15 +41,15 @@ const CTASection: React.FC = () => {
           system?
         </h2>
 
-        <p className="mx-auto mt-3 md:mt-4 lg:mt-5 max-w-3xl font-sora text-sm md:text-base leading-relaxed text-slate-600 lg:text-lg">
+        <p className="mx-auto mt-3 md:mt-4 lg:mt-5 max-w-3xl font-sora text-[0.8rem] sm:text-sm md:text-base leading-relaxed text-slate-600 lg:text-lg">
           Let&apos;s talk about your project. Your first 30-minute strategy call
           is always complimentary, no obligation.
         </p>
 
-        <div className="mt-8 md:mt-10 flex flex-wrap items-center justify-center gap-3 md:gap-4">
+        <div className="mt-6 md:mt-8 lg:mt-10 flex flex-wrap items-center justify-center gap-3 md:gap-4">
           <a
             href="mailto:hello@apihub.co.ke?subject=Project%20inquiry"
-            className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-5 md:px-6 py-2.5 font-sora text-[0.83rem] md:text-sm lg:text-[0.9rem] font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95  md:py-3 shadow-primary-600/60"
+            className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-5 md:px-6 py-2.5 font-sora text-[0.7rem] sm:text-[0.83rem] md:text-sm lg:text-[0.9rem] font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95  md:py-3 shadow-primary-600/60"
           >
             <span className="hidden md:block">Contact the team</span>
             <span className="block md:hidden">Contact Us</span>
@@ -58,7 +58,7 @@ const CTASection: React.FC = () => {
           <button
             type="button"
             onClick={openModal}
-            className="rounded-full border-2 border-slate-600 px-5 py-2 font-sora text-[0.83rem] font-bold text-slate-800 transition-colors duration-300 hover:bg-slate-200 md:px-6 md:text-sm lg:text-[0.9rem] md:py-2.5 shadow-lg shadow-slate-200"
+            className="rounded-full border-2 border-slate-600 px-5 py-2 font-sora text-[0.7rem] sm:text-[0.83rem] font-bold text-slate-800 transition-colors duration-300 hover:bg-slate-200 md:px-6 md:text-sm lg:text-[0.9rem] md:py-2.5 shadow-lg shadow-slate-200"
           >
             Book Consultation Call
           </button>
@@ -71,10 +71,10 @@ const CTASection: React.FC = () => {
             </span>
             <a href="mailto:hello@apihub.co.ke" className="">
               <div className="min-w-0 text-left">
-                <h3 className="font-sora text-[0.8rem] lg:text-[0.9rem] font-bold text-slate-500">
+                <h3 className="font-sora text-[0.7rem] sm:text-[0.8rem] lg:text-[0.9rem] font-bold text-slate-500">
                   Email
                 </h3>
-                <p className="mt-0.5 text-xs lg:text-sm font-medium text-slate-900">
+                <p className="mt-0.5 text-[0.7rem] sm:text-xs lg:text-sm font-medium text-slate-900">
                   hello@apihub.co.ke
                 </p>
               </div>
@@ -83,10 +83,10 @@ const CTASection: React.FC = () => {
 
             <a href="tel:+254790193402" className="">
               <div className="min-w-0 text-left">
-                <h3 className="font-sora text-xs lg:text-sm font-bold text-slate-500">
+                <h3 className="font-sora text-[0.7rem] sm:text-xs lg:text-sm font-bold text-slate-500">
                   Phone
                 </h3>
-                <p className="mt-0.5 text-xs lg:text-sm font-medium text-slate-900">
+                <p className="mt-0.5 text-[0.7rem] sm:text-xs lg:text-sm font-medium text-slate-900">
                   +254 790 193 402
                 </p>
               </div>
@@ -98,10 +98,10 @@ const CTASection: React.FC = () => {
               <PiMapPinAreaDuotone className="h-6 w-6" aria-hidden />
             </span>
             <div className="min-w-0">
-              <h3 className="font-sora text-[0.8rem] lg:text-[0.9rem] text-start font-bold text-slate-500">
+              <h3 className="font-sora text-[0.7rem] sm:text-[0.8rem] lg:text-[0.9rem] text-start font-bold text-slate-500">
                 Office Location
               </h3>
-              <p className="mt-0.5 text-xs lg:text-sm font-medium text-slate-900">
+              <p className="mt-0.5 text-[0.7rem] sm:text-xs lg:text-sm font-medium text-slate-900">
                 Westlands, Nairobi Kenya
               </p>
             </div>
@@ -112,10 +112,10 @@ const CTASection: React.FC = () => {
               <TbClockCode className="h-6 w-6" aria-hidden />
             </span>
             <div className="min-w-0">
-              <h3 className="font-sora text-[0.8rem] lg:text-[0.9rem] text-start font-bold text-slate-500">
+              <h3 className="font-sora text-[0.7rem] sm:text-[0.8rem] lg:text-[0.9rem] text-start font-bold text-slate-500">
                 Mon–Fri, 9:00–18:00 EAT
               </h3>
-              <p className="mt-0.5 text-xs lg:text-sm font-medium text-slate-900">
+              <p className="mt-0.5 text-[0.7rem] sm:text-xs lg:text-sm font-medium text-slate-900">
                 Emergency support for partners
               </p>
             </div>
@@ -123,7 +123,7 @@ const CTASection: React.FC = () => {
         </div>
 
         <div className="mt-6 lg:mt-10 max-w-xl mx-auto font-sora border-t border-dashed border-slate-300 pt-6">
-          <p className="text-[0.8rem] md:text-[0.84rem] lg:text-sm text-slate-600">
+          <p className="text-[0.7rem] sm:text-[0.8rem] md:text-[0.84rem] lg:text-sm text-slate-600">
             Include your timeline and tech stack & we’ll connect you with the
             right engineer faster.
           </p>

@@ -50,17 +50,17 @@ const ProcessSection: React.FC = () => {
       <div className="mx-auto max-w-screen-2xl px-4 lg:px-12">
         <div className="mb-8 flex flex-col justify-between gap-4 md:mb-10 lg:mb-12 lg:flex-row lg:items-end">
           <div className="max-w-3xl">
-            <p className="mb-2 text-sm font-bold text-primary-600">
+            <p className="mb-2 text-[0.8rem] sm:text-sm font-bold text-primary-600">
               Our Delivery approach
             </p>
             <h2
               id="process-heading"
-              className="text-[1.7rem] font-extrabold leading-tight tracking-tight text-slate-900 md:text-[2rem] lg:text-[2.45rem]"
+              className="text-[1.4rem] sm:text-[1.6rem] md:text-[1.8rem] lg:text-[2rem] font-extrabold leading-tight tracking-tight text-slate-900  xl:text-[2.45rem]"
             >
               A practical path from idea to dependable software
             </h2>
           </div>
-          <p className="max-w-xl text-sm leading-relaxed text-slate-600 md:text-base">
+          <p className="max-w-xl text-[0.8rem] sm:text-sm leading-relaxed text-slate-600 md:text-base">
             Clear scope, visible progress, and launch discipline matter. This is
             how we reduce surprises while keeping momentum high.
           </p>
@@ -75,18 +75,18 @@ const ProcessSection: React.FC = () => {
                 key={step.num}
                 className="relative rounded-3xl border border-slate-200 bg-slate-50/80 p-5 transition-all hover:-translate-y-1 hover:border-primary-200 hover:bg-white hover:shadow-xl hover:shadow-primary-600/5"
               >
-                <div className="mb-5 flex items-center justify-between">
-                  <span className="font-sora text-3xl font-extrabold text-slate-200">
+                <div className="mb-2 md:mb-4 lg:mb-5 flex items-center justify-between">
+                  <span className="font-sora text-2xl sm:text-3xl font-extrabold text-slate-200">
                     {step.num}
                   </span>
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white text-primary-700 ring-1 ring-slate-200">
                     <Icon className="h-5 w-5" strokeWidth={1.7} />
                   </span>
                 </div>
-                <h3 className="text-base font-extrabold leading-tight text-slate-900 lg:text-lg">
+                <h3 className="text-[0.9rem] sm:text-base font-extrabold leading-tight text-slate-900 lg:text-lg">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-[0.82rem] leading-relaxed text-slate-600">
+                <p className="mt-3 text-[0.75rem] sm:text-[0.82rem] leading-relaxed text-slate-600">
                   {step.desc}
                 </p>
               </article>

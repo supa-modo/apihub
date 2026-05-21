@@ -38,14 +38,14 @@ const WhyChooseUs: React.FC = () => {
       <div className="font-sora max-w-screen-2xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid lg:grid-cols-12 gap-6 md:gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-5">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-primary-100 border border-primary-600 text-primary-600 text-[0.7rem] md:text-xs font-bold mb-4 md:mb-5 lg:mb-6">
+            <div className="inline-block px-4 py-1 lg:py-1.5 rounded-full bg-primary-100 border border-primary-600 text-primary-600 text-[0.65rem] sm:text-[0.7rem] md:text-xs font-bold mb-4 md:mb-5 lg:mb-6">
               Why Choose APIHub
             </div>
-            <h2 className="text-[1.7rem] md:text-[2rem] lg:text-[2.5rem] font-sora font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+            <h2 className="text-[1.4rem] sm:text-[1.6rem] md:text-[1.8rem] lg:text-[2rem] font-sora font-extrabold tracking-tight text-slate-900 leading-[1.2]">
               Not just code. <br />
               <span className="text-primary-600">Future-proof</span> systems.
             </h2>
-            <p className="mt-4 lg:mt-6 text-sm md:text-base lg:text-lg text-slate-600 leading-relaxed">
+            <p className="mt-4 lg:mt-6 text-[0.8rem] sm:text-sm md:text-base lg:text-lg text-slate-600 leading-relaxed">
               We don’t just build software — we engineer digital infrastructure
               that becomes your unfair competitive advantage built for the
               future.
@@ -56,10 +56,10 @@ const WhyChooseUs: React.FC = () => {
                   A
                 </div>
                 <div>
-                  <p className="text-sm font-bold font-sora text-slate-900">
+                  <p className="text-[0.8rem] sm:text-sm font-bold font-sora text-slate-900">
                     Engineering Excellence
                   </p>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-[0.7rem] sm:text-xs text-slate-500">
                     Standardized across all projects
                   </p>
                 </div>
@@ -78,11 +78,11 @@ const WhyChooseUs: React.FC = () => {
                   <div className="h-10 md:h-12 w-10 md:w-12 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center text-primary-600 text-[1.35rem] md:text-2xl group-hover:scale-110 transition-transform">
                     {reason.icon}
                   </div>
-                  <h4 className="font-sora font-bold text-lg lg:text-xl text-slate-900">
+                  <h4 className="font-sora font-bold text-[0.9rem] md:text-lg lg:text-xl text-slate-900">
                     {reason.title}
                   </h4>
                 </div>
-                <p className="text-slate-600 text-sm leading-relaxed">
+                <p className="text-slate-600 text-[0.8rem] sm:text-sm leading-relaxed">
                   {reason.desc}
                 </p>
               </div>

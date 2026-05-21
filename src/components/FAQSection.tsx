@@ -31,12 +31,12 @@ const FAQSection: React.FC = () => {
     >
       <div className="mx-auto max-w-screen-2xl px-4 lg:px-12">
         <div className="mb-4 max-w-3xl md:mb-10 lg:mb-6">
-          <p className="text-sm font-bold text-primary-600">
+          <p className="text-[0.8rem] sm:text-sm font-bold text-primary-600">
             Common project questions
           </p>
           <h2
             id="faq-heading"
-            className="mt-2 text-[1.3rem] font-extrabold tracking-tight text-slate-900 md:text-[1.5rem] lg:text-[1.75rem]"
+            className="mt-2 text-[1.2rem] sm:text-[1.4rem] md:text-[1.6rem] lg:text-[1.8rem] font-extrabold tracking-tight text-slate-900 xl:text-[2rem]"
           >
             FAQs about building with APIHub
           </h2>
@@ -48,10 +48,10 @@ const FAQSection: React.FC = () => {
               key={faq.question}
               className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm lg:p-6"
             >
-              <h3 className="text-base font-extrabold text-slate-900 lg:text-lg">
+              <h3 className="text-[0.9rem] sm:text-base font-extrabold text-slate-900 lg:text-lg">
                 {faq.question}
               </h3>
-              <p className="mt-3 text-[0.83rem] leading-relaxed text-slate-600 md:text-sm">
+              <p className="mt-3 text-[0.75rem] sm:text-[0.83rem] leading-relaxed text-slate-600 md:text-sm">
                 {faq.answer}
               </p>
             </article>

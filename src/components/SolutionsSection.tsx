@@ -86,7 +86,7 @@ const DesktopSolutionCard: React.FC<{ sol: Solution; cardId: string }> = ({
 
       <div className="absolute inset-0 flex flex-col justify-end p-8">
         <motion.span
-          className="mb-3 -ml-1 inline-block w-fit rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs tracking-wide font-sora font-bold text-white backdrop-blur-md"
+          className="mb-3 -ml-1 inline-block w-fit rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[0.7rem] lg:text-xs tracking-wide font-sora font-bold text-white backdrop-blur-md"
           initial={false}
           animate={{ y: hovered ? 0 : 4 }}
           transition={
@@ -100,7 +100,7 @@ const DesktopSolutionCard: React.FC<{ sol: Solution; cardId: string }> = ({
 
         <motion.h4
           id={`${cardId}-title`}
-          className="mb-3 font-sora text-[1.4rem] font-bold leading-tight text-white"
+          className="mb-3 font-sora text-[1.2rem] sm:text-[1.4rem] font-bold leading-tight text-white"
           initial={false}
           animate={{ y: hovered ? 0 : 2 }}
           transition={
@@ -121,7 +121,7 @@ const DesktopSolutionCard: React.FC<{ sol: Solution; cardId: string }> = ({
           }
         >
           <motion.p
-            className="font-sora text-[0.83rem] leading-relaxed text-slate-300"
+            className="font-sora text-[0.75rem] sm:text-[0.83rem] leading-relaxed text-slate-300"
             initial={false}
             animate={{ opacity: hovered ? 1 : 0.85 }}
             transition={
@@ -201,15 +201,15 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
             isActive ? "is-active" : ""
           }`}
         >
-          <span className="mb-3 inline-block w-fit rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs tracking-wide font-sora font-bold text-white backdrop-blur-md">
+          <span className="mb-3 inline-block w-fit rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[0.65rem] sm:text-[0.7rem] md:text-xs tracking-wide font-sora font-bold text-white backdrop-blur-md">
             {sol.tag}
           </span>
 
-          <h4 className="mb-2.5 font-sora text-[1.2rem] font-bold leading-tight text-white sm:text-2xl">
+          <h4 className="mb-2.5 font-sora text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] font-bold leading-tight text-white sm:text-2xl">
             {sol.title}
           </h4>
 
-          <p className="line-clamp-3 text-[0.8rem] leading-relaxed text-slate-300 sm:text-sm">
+          <p className="line-clamp-3 text-[0.7rem] sm:text-[0.75rem] md:text-[0.8rem] lg:text-[0.83rem] leading-relaxed text-slate-300 sm:text-sm">
             {sol.desc}
           </p>
         </div>
@@ -351,16 +351,16 @@ const PEEK_SIZE = 50; // px of side card visible
 
 const SolutionsSection: React.FC = () => (
   <section id="solutions" className="bg-white lg:pt-8 pb-20 lg:pb-24">
-    <div className="font-sora mx-auto max-w-360 px-6 lg:px-12">
+    <div className="font-sora mx-auto max-w-360 px-4 md:px-6 lg:px-12">
       {/* Header */}
       <div className="mb-8 flex flex-col justify-between gap-4 md:mb-10 md:flex-row lg:items-start lg:mb-12 lg:gap-6">
         <div className="max-w-2xl">
-          <h2 className="font-sora text-[1.6rem] font-extrabold leading-tight tracking-tight text-slate-900 md:text-[1.7rem] lg:text-[1.8rem]">
+          <h2 className="font-sora text-[1.4rem] sm:text-[1.6rem] font-extrabold leading-tight tracking-tight text-slate-900 md:text-[1.7rem] lg:text-[1.8rem]">
             Purpose-built solutions for <br />
             <span className="text-secondary-600">complex industries</span>
           </h2>
         </div>
-        <p className="flex items-center text-sm font-medium text-slate-500">
+        <p className="flex items-center text-[0.8rem] sm:text-sm font-medium text-slate-500">
           <span className="mr-2 h-6 w-1.5 rounded-full bg-primary-600" />
           Customized frameworks for high-growth sectors.
         </p>
@@ -384,7 +384,7 @@ const SolutionsSection: React.FC = () => (
 
       {/* Bottom strip */}
       <div className="mt-10 md:mt-12 lg:mt-14 flex flex-col font-sora items-center justify-between gap-6 border-t border-dashed border-slate-400 pt-10 lg:flex-row">
-        <p className="max-w-xl text-center text-sm text-slate-600 sm:text-left">
+        <p className="max-w-xl text-center text-[0.8rem] sm:text-[0.9rem] md:text-sm text-slate-600 sm:text-left">
           Need a blended engagement? We often combine{" "}
           <span className="font-semibold text-slate-800">
             API + cloud + integrations
@@ -393,7 +393,7 @@ const SolutionsSection: React.FC = () => (
         </p>
         <a
           href="#contact"
-          className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-8 py-3 font-sora text-sm font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95 shadow-primary-600/60"
+          className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-8 py-2.5 lg:py-3 font-sora text-[0.7rem] sm:text-sm font-semibold text-white shadow-lg transition-all hover:bg-primary-700 active:scale-95 shadow-primary-600/60"
         >
           Start a Project With Us
           <TbArrowRightToArc className="h-5 w-5" />

@@ -142,14 +142,14 @@ const ConsultationModal: React.FC = () => {
           <div className="relative px-6 pb-4 pt-6">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-3 py-1.5 shadow-sm">
               <span className="h-3.5 w-[0.3rem] rounded-full bg-amber-600" />
-              <span className="font-sora text-[0.72rem] md:text-xs lg:text-sm[0.82rem] font-semibold text-slate-600">
+              <span className="font-sora text-[0.7rem] md:text-xs lg:text-sm[0.82rem] font-semibold text-slate-600">
                 Book a consultation
               </span>
             </div>
             <div className="flex items-start justify-between gap-4">
               <h2
                 id={titleId}
-                className="font-sora text-xl font-extrabold tracking-tight text-slate-900 md:text-2xl"
+                className="font-sora text-lg md:text-xl font-extrabold tracking-tight text-slate-900 lg:text-2xl"
               >
                 Tell us about{" "}
                 <span className="bg-linear-to-r from-primary-700 via-primary-600 to-secondary-600 bg-clip-text text-transparent">
@@ -157,7 +157,7 @@ const ConsultationModal: React.FC = () => {
                 </span>
               </h2>
             </div>
-            <p className="mt-2 text-[0.8rem] md:text-sm text-slate-600">
+            <p className="mt-2 text-[0.75rem] md:text-[0.8rem] lg:text-sm text-slate-600">
               We&apos;ll reply within one business day. Fields marked * are
               required.
             </p>
@@ -165,7 +165,7 @@ const ConsultationModal: React.FC = () => {
 
           <div className="relative px-4 lg:px-6 pb-4 md:pb-6 pt-2">
             {submitted ? (
-              <div className="rounded-2xl border border-secondary-200 bg-secondary-50/80 px-4 py-6 text-center text-[0.8rem] lg:text-sm text-slate-700">
+              <div className="rounded-2xl border border-secondary-200 bg-secondary-50/80 px-4 py-6 text-center text-[0.75rem] md:text-[0.8rem] lg:text-sm text-slate-700">
                 <p className="font-semibold text-slate-900">
                   Opening your email client…
                 </p>
@@ -184,7 +184,7 @@ const ConsultationModal: React.FC = () => {
                 <div>
                   <label
                     htmlFor="consult-name"
-                    className="mb-1.5 pl-1.5 block font-sora text-[0.78rem] md:text-[0.8rem] lg:text-[0.85rem] font-semibold text-secondary-700"
+                    className="mb-1.5 pl-1.5 block font-sora text-[0.7rem] sm:text-[0.75rem] md:text-[0.8rem] lg:text-[0.85rem] font-semibold text-secondary-700"
                   >
                     Full name *
                   </label>
@@ -196,14 +196,14 @@ const ConsultationModal: React.FC = () => {
                     autoComplete="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-[0.8rem] lg:text-sm text-slate-900 outline-none transition-shadow focus:border-primary-600 focus:ring-1 focus:ring-primary-500"
+                    className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-[0.75rem] md:text-[0.8rem] lg:text-sm text-slate-900 outline-none transition-shadow focus:border-primary-600 focus:ring-1 focus:ring-primary-500"
                     placeholder="Jane Doe"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="consult-contact"
-                    className="mb-1.5 pl-1.5 block font-sora text-[0.78rem] md:text-[0.8rem] lg:text-[0.85rem] font-semibold text-secondary-700"
+                    className="mb-1.5 pl-1.5 block font-sora text-[0.7rem] sm:text-[0.78rem] md:text-[0.8rem] lg:text-[0.85rem] font-semibold text-secondary-700"
                   >
                     Email and/or Phone *
                   </label>
@@ -215,14 +215,14 @@ const ConsultationModal: React.FC = () => {
                     autoComplete="email tel"
                     value={contact}
                     onChange={(e) => setContact(e.target.value)}
-                    className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-[0.8rem] lg:text-sm text-slate-900 outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-500"
+                    className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-[0.75rem] md:text-[0.8rem] lg:text-sm text-slate-900 outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-500"
                     placeholder="you@company.com, +254..."
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="consult-service"
-                    className="mb-1.5 pl-1.5 block font-sora text-[0.78rem] md:text-[0.8rem] lg:text-[0.85rem] font-semibold text-secondary-700"
+                    className="mb-1.5 pl-1.5 block font-sora text-[0.7rem] sm:text-[0.78rem] md:text-[0.8rem] lg:text-[0.85rem] font-semibold text-secondary-700"
                   >
                     Service *
                   </label>
@@ -232,7 +232,7 @@ const ConsultationModal: React.FC = () => {
                     required
                     value={service}
                     onChange={(e) => setService(e.target.value)}
-                    className="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-[0.8rem] lg:text-sm text-slate-900 outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-500"
+                    className="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-[0.75rem] md:text-[0.8rem] lg:text-sm text-slate-900 outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-500"
                   >
                     <option value="">Select a service…</option>
                     {CONSULTATION_SERVICE_OPTIONS.map((opt) => (
@@ -245,7 +245,7 @@ const ConsultationModal: React.FC = () => {
                 <div>
                   <label
                     htmlFor="consult-notes"
-                    className="mb-1.5 pl-1.5 block font-sora text-[0.78rem] md:text-[0.8rem] lg:text-[0.85rem] font-semibold text-secondary-700"
+                    className="mb-1.5 pl-1.5 block font-sora text-[0.7rem] sm:text-[0.78rem] md:text-[0.8rem] lg:text-[0.85rem] font-semibold text-secondary-700"
                   >
                     Additional notes{" "}
                     <span className="font-normal text-slate-500">
@@ -258,7 +258,7 @@ const ConsultationModal: React.FC = () => {
                     rows={2}
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-[0.8rem] lg:text-sm text-slate-900 outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-500"
+                    className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-[0.75rem] md:text-[0.8rem] lg:text-sm text-slate-900 outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-500"
                     placeholder="Any extra details, goals, timelines, or constraints..."
                   />
                 </div>
@@ -267,13 +267,13 @@ const ConsultationModal: React.FC = () => {
                   <button
                     type="button"
                     onClick={closeModal}
-                    className="w-fit rounded-full border border-slate-600 bg-white px-8 py-2 lg:py-2.5 font-sora text-[0.83rem] lg:text-sm font-bold text-slate-700 transition-colors hover:bg-slate-50"
+                    className="w-fit rounded-full border border-slate-600 bg-white px-8 py-2 lg:py-2.5 font-sora text-[0.7rem] md:text-[0.83rem] lg:text-sm font-bold text-slate-700 transition-colors hover:bg-slate-50"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="w-fit flex items-center justify-center gap-2 rounded-full bg-primary-600 px-8 py-2.5 font-sora text-[0.83rem] lg:text-sm font-semibold text-white shadow-lg transition-colors hover:bg-primary-700 active:scale-[0.98]"
+                    className="w-fit flex items-center justify-center gap-2 rounded-full bg-primary-600 px-6 lg:px-8 py-2.5 font-sora text-[0.7rem] md:text-[0.83rem] lg:text-sm font-semibold text-white shadow-lg transition-colors hover:bg-primary-700 active:scale-[0.98]"
                   >
                     Submit request
                     <TbArrowRightToArc className="h-5 w-5" aria-hidden />

@@ -116,7 +116,7 @@ const TestimonialCard: React.FC<CardProps> = ({
     </svg>
 
     <p
-      className={`relative z-10 mb-6 flex-1 text-sm leading-relaxed text-slate-300 ${
+      className={`relative z-10 mb-6 flex-1 text-[0.8rem] sm:text-sm leading-relaxed text-slate-300 ${
         marqueeLayout ? "line-clamp-7" : ""
       }`}
     >
@@ -125,7 +125,7 @@ const TestimonialCard: React.FC<CardProps> = ({
 
     <div className="flex shrink-0 items-center gap-3">
       <div
-        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-sora text-sm font-bold"
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-sora text-[0.8rem] sm:text-sm font-bold"
         style={{
           background: `${t.color}25`,
           color: t.color,
@@ -135,8 +135,8 @@ const TestimonialCard: React.FC<CardProps> = ({
         {t.initial}
       </div>
       <div className="min-w-0">
-        <p className="truncate text-sm font-semibold text-white">{t.name}</p>
-        <p className="truncate text-xs text-slate-300">
+        <p className="truncate text-[0.8rem] sm:text-sm font-semibold text-white">{t.name}</p>
+        <p className="truncate text-[0.7rem] sm:text-xs text-slate-300">
           {t.role} · {t.company}
         </p>
       </div>
@@ -227,11 +227,11 @@ export default function TestimonialsSection() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-4 lg:mb-10 text-center">
-          <p className="mb-1 text-sm font-semibold text-white lg:text-[0.9rem]">
+          <p className="mb-1 text-[0.8rem] sm:text-sm font-semibold text-white lg:text-[0.9rem]">
             What Clients Say
           </p>
           <div className="mx-auto mb-3 h-px w-10 bg-white" />
-          <h2 className="font-sora text-[1.7rem] md:text-[1.9rem] lg:text-[2.5rem] font-extrabold leading-tight text-white">
+          <h2 className="font-sora text-[1.4rem] sm:text-[1.6rem] md:text-[1.8rem] lg:text-[2rem] xl:text-[2.5rem] font-extrabold leading-tight text-white">
             Trusted by builders &{" "}
             <span className="bg-linear-to-r from-secondary-400 to-secondary-500 bg-clip-text text-transparent">
               operators

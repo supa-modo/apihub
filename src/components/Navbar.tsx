@@ -100,7 +100,7 @@ const Navbar: React.FC = () => {
             <img
               src="/logo2.webp"
               alt="APIHub Solutions"
-              className="w-30 md:w-32 lg:w-36 cursor-pointer"
+              className="w-26 md:w-32 lg:w-36 cursor-pointer"
             />
           </a>
 
@@ -123,7 +123,7 @@ const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={openModal}
-              className="rounded-full bg-secondary-600 px-5 py-2 text-[0.83rem] font-medium text-white shadow-lg transition hover:bg-secondary-700 md:bg-primary-600 md:text-sm md:hover:bg-primary-700 lg:py-2.5 shadow-primary-600/60"
+              className="rounded-full bg-secondary-600 px-5 py-2 text-[0.7rem] lg:text-[0.83rem] font-semibold text-white shadow-lg transition hover:bg-secondary-700 md:bg-primary-600 md:text-sm md:hover:bg-primary-700 lg:py-2.5 shadow-primary-600/60"
             >
               Book Consultation
             </button>
@@ -133,9 +133,9 @@ const Navbar: React.FC = () => {
               className="md:hidden p-2 rounded-full bg-primary-600 hover:bg-primary-700 transition"
             >
               {isMenuOpen ? (
-                <TbX className="w-5 h-5 text-white" />
+                <TbX className="w-4 lg:w-5 h-4 lg:h-5 text-white" />
               ) : (
-                <CgMenuRightAlt className="w-5 h-5 text-white" />
+                <CgMenuRightAlt className="w-4 lg:w-5 h-4 lg:h-5 text-white" />
               )}
             </button>
           </div>
@@ -151,7 +151,7 @@ const Navbar: React.FC = () => {
           }`}
         >
           <div className="mx-auto w-[95%] max-w-md">
-            <div className="relative bg-white/90 backdrop-blur-sm border border-slate-200 rounded-3xl shadow-2xl p-6 overflow-hidden">
+            <div className="relative bg-white/90 backdrop-blur-sm border border-slate-200 rounded-3xl shadow-2xl p-3.5 md:p-4 lg:p-6 overflow-hidden">
               
               {/* subtle gradient glow */}
               <div className="absolute inset-0 bg-linear-to-br from-primary-50/40 via-transparent to-secondary-50/30 pointer-events-none" />
@@ -166,7 +166,7 @@ const Navbar: React.FC = () => {
                       key={link.name}
                       href={link.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="flex items-center justify-between px-4 py-1 rounded-xl text-slate-600 font-sora text-[0.9rem] font-semibold hover:bg-slate-100 transition group"
+                      className="flex items-center justify-between px-4 py-1 rounded-xl text-slate-600 font-sora text-[0.75rem] md:text-[0.8rem] lg:text-[0.9rem] font-semibold hover:bg-slate-100 transition group"
                     >
                       <span>{link.name}</span>
                       <TbArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition" />
@@ -178,9 +178,9 @@ const Navbar: React.FC = () => {
                 <div className="border-t border-slate-500 border-dashed my-4" />
 
                 {/* CTA Block */}
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col md:flex-row items-start lg: items-center justify-between gap-2">
                   <div>
-                    <p className="text-sm font-sora font-semibold text-secondary-700">
+                    <p className="text-[0.75rem] md:text-[0.8rem] lg:text-[0.9rem] font-sora font-bold text-secondary-700">
                       Start your project
                     </p>
                     <p className="text-xs text-slate-500">
@@ -194,7 +194,7 @@ const Navbar: React.FC = () => {
                       openModal();
                       setIsMenuOpen(false);
                     }}
-                    className="flex items-center gap-2 rounded-full bg-primary-600 px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-primary-700"
+                    className="w-full lg:w-auto flex items-center justify-center gap-2 rounded-full bg-primary-600 px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-primary-700"
                   >
                     <span>Get Started</span>
                     <TbArrowRightToArc className="h-4 w-4" />
